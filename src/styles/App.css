@@ -44,8 +44,9 @@
   padding: 1 rem;
   align-items: center;
   justify-content: space-around;
+}
 
-  >.navbar {
+.navbar {
     display: flex;
     font-weight: 500;
     gap: 16px;
@@ -56,9 +57,9 @@
     }
 
   }
-}
 
-nav .navlink {
+
+ .navlink {
   display: flex;
   text-decoration: none;
   color: gray;

@@ -22,7 +22,7 @@ import { Profile } from "./Profile";
                  <li><NavLink id="mytrip" to="/mysupport/trips"><LuggageIcon fontSize="large"/><span>My Trips</span><br/> <span id="managebooking">Manage Booking</span></NavLink></li>
 
             </ul>
-            <Profile/>
+            <Profile/>j
         </nav>
     )
  }
