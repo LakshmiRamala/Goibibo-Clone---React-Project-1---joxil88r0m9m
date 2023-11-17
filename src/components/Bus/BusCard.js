@@ -22,7 +22,6 @@ export default function BusCard({ details }) {
                         <p style={{ color: "blue" }}>{source}</p>
                         <h3 style={{ fontWeight: "500" }}>{arrivalTime}</h3>
                     </span>
-
                     <span>
                         <p style={{ color: "blue" }}>{destination}</p>
                         <h3 style={{ fontWeight: "500" }}>{departureTime}</h3>
