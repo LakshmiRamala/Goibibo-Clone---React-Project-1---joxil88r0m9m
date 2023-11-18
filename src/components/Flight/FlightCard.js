@@ -11,7 +11,7 @@ export default function FlightCard({ details }) {
             <div id="flightbookindetails">
                 <span>
                     <p style={{color:"grey"}}>SOURCE: {source}</p>
-                    <h3 style={{fontWeight:"500"}}>Arraival Time: {arrivalTime}</h3>
+                    <h3 style={{fontWeight:"500"}}>Depature Time: {departureTime}</h3>
                 </span>
                 <span>
                 <p style={{color:"grey"}}>Duration: {duration}</p>
@@ -19,7 +19,7 @@ export default function FlightCard({ details }) {
                 </span>
                 <span>
                     <p style={{color:"grey"}}>Destination: {destination}</p>
-                    <h3 style={{fontWeight:"500"}}>Depature Time: {departureTime}</h3>
+                    <h3 style={{fontWeight:"500"}}>Arrival Time: {arrivalTime}</h3>
                 </span>
                
 

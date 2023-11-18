@@ -4,9 +4,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 
 export default function Payment({ details, onClose,userDetails }) {
-  const [paymentStatus, setPaymentStatus] = useState(null);
 
-  console.log("userDetails",userDetails);
 
   return (
     <div className="payment-modal">

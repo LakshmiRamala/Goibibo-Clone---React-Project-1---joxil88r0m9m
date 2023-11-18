@@ -48,11 +48,11 @@ export default function TrainCard({ details }) {
       </div>
       <section className="trainheading">
         <h3>
-          {arrivalTime} {source}
+          {departureTime} {source}
         </h3>
         <p>----{travelDuration}----</p>
         <h3>
-          {departureTime} {destination}
+          {arrivalTime} {destination}
         </h3>
       </section>
       

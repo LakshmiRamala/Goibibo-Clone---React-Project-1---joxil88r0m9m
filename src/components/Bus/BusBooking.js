@@ -87,13 +87,13 @@ export default function BusBooking() {
           <section style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}>
             <div>
             <h2 style={{color:"#2176d1"}}>Boarding Point</h2>
-            <p>{bus.arrivalTime}</p>
+            <p>{bus.departureTime}</p>
             <p>{bus.source}</p>
             </div>
             <p>{"---------->"}</p>
             <div>
             <h2 style={{color:"#2176d1"}}>Dropping Point</h2>
-            <p>{bus.departureTime}</p>
+            <p>{bus.arrivalTime}</p>
             <p>{bus.destination}</p>
             </div>
           </section>
