@@ -13,7 +13,7 @@ import { Profile } from "./Profile";
  export default function Navbar(){
     return (
         <nav className="nav-container">
-            <NavLink to="/flights"><img src={logo} id="logo"/></NavLink>
+            <NavLink to="flights"><img src={logo} id="logo"/></NavLink>
             <ul className="navbar">
                 <li><NavLink  className="navlink" to="/flights"><FlightOutlinedIcon color="primary"/>Flights</NavLink></li>
                 <li><NavLink  className="navlink" to="/hotels"><HotelIcon color="primary"/> Hotels</NavLink></li>
@@ -22,7 +22,7 @@ import { Profile } from "./Profile";
                  <li><NavLink id="mytrip" to="/mysupport/trips"><LuggageIcon fontSize="large"/><span>My Trips</span><br/> <span id="managebooking">Manage Booking</span></NavLink></li>
 
             </ul>
-            <Profile/>j
+            <Profile/>
         </nav>
     )
  }
