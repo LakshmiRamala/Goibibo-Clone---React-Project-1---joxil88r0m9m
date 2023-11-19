@@ -19,15 +19,18 @@ export default function Bus() {
         if (source && destination && day) {
             navigate(`/bus/${source}&${destination}`, { state: { source, destination, day } });
         }
+        else{
+            alert("Please Provide all details");
+          }
     };
     return (
         <div className="flights" style={{backgroundColor:"#2176d1"}}>
             <h2 className="heading">Bus Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
                 <div id="journeyinfo">
-                    <input type="text" id="from" placeholder="From..." onChange={(e) => setSource(e.target.value)} value={source} />
+                    <input type="text" id="from" placeholder="Enter Source....(Hyderabad)" onChange={(e) => setSource(e.target.value)} value={source} />
                     <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>
-                    <input type="text" id="to" placeholder="To...." onChange={(e) => setDestination(e.target.value)} value={destination} />
+                    <input type="text" id="to" placeholder="Enter Destination....(Gujarat)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
                         <option value="" disabled>Select day</option>
                         <option value="Mon">Monday</option>

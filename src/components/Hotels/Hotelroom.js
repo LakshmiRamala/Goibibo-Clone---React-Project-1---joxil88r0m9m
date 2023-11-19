@@ -1,18 +1,20 @@
 import React from "react";
 import axios from "axios";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
 
 export default function Hotelroom({ details, hotelId, hotelDetails }) {
-  const { roomNumber, roomType, price, bedDetail, _id } = details;
+  const { roomNumber, roomType, price, bedDetail } = details;
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
-  const { pathname } = useLocation();
+    sessionStorage.setItem("details", JSON.stringify(details));
+        sessionStorage.setItem("hotelDetails", JSON.stringify(hotelDetails));
 
   const handleBookNow = async () => {
     if (isLoggedIn) {
       try {
         const token = sessionStorage.getItem("userToken");
+
         const config = {
           headers: {
             projectId: "9sa80czkq1na",
@@ -33,18 +35,20 @@ export default function Hotelroom({ details, hotelId, hotelDetails }) {
           config
         );
 
-        const bookingId = res.data.bookingId._id;
+        const bookingId = res.data.bookingId?._id;
         if (bookingId) {
           sessionStorage.setItem("bookingId", bookingId);
           sessionStorage.setItem("userId", JSON.stringify(res.data.bookingId.user));
-      
-          navigate("/checkoutPage", { state: { details, hotelDetails } });
+
+          // Navigate to "/checkoutPage"
+          navigate("/checkoutPage");
         }
       } catch (err) {
         console.error("Error:", err);
       }
     } else {
-      navigate("/login", { state: { prevPath: pathname } });
+      // Navigate to "/login" with state information
+      navigate("/login", { state: { prevPath: "/checkoutPage" } });
     }
   };
 

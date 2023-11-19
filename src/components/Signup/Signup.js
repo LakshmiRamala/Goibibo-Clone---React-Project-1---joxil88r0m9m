@@ -1,35 +1,51 @@
 import axios from "axios";
-import React, { useContext, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
+import { JsxEmit } from "typescript";
 
 export default function SignUp() {
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
   const { setIsLoggedIn } = useAuth();
+
   const createUser = async (user) => {
-    const config = {
-      headers: {
-        projectId: "9sa80czkq1na"
-      }
-    };
+    setLoading(true);
     try {
+      const config = {
+        headers: {
+          projectId: "9sa80czkq1na"
+        }
+      };
+
       const res = await axios.post(
         "https://academics.newtonschool.co/api/v1/user/signup",
         { ...user, appType: "bookingportals" },
         config
       );
-      console.log("res", res);
+        console.log(res);
       const token = res.data.token;
       if (token) {
         sessionStorage.setItem("userToken", token);
         sessionStorage.setItem("userName", JSON.stringify(res.data.data.user.name));
-        navigate("/login");
+        sessionStorage.setItem("userEmail", JSON.stringify(res.data.data.user.email));
+        
+        setIsLoggedIn(true); 
+        navigate("/flights");
       }
     } catch (err) {
-      console.log("Error:", err);
+      console.error("Error:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setMessage(err.response.data.message);
+      } else {
+        setMessage("An error occurred during signup.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,7 +70,7 @@ export default function SignUp() {
         <label htmlFor="email">Email: </label>
         <input type="email" name="email" id="email" ref={emailRef} />
       </div>
-      <div  className="inputFeild">
+      <div className="inputFeild">
         <label htmlFor="password">Password: </label>
         <input
           type="password"
@@ -64,8 +80,9 @@ export default function SignUp() {
         />
       </div>
       <div className="submitform">
-        <input type="submit" value="SignUp" />
+        <input type="submit" value="SignUp" disabled={loading} />
       </div>
+      <h4>{message}</h4>
     </form>
   );
-};
+}

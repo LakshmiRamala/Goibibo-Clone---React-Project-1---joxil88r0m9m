@@ -16,6 +16,7 @@ import FlightSearch from "./Flight/FlightSearch";
 import TrainSearch from "./Trains/TrainSearch";
 import BusSearch from "./Bus/BusSearch";
 import BusBooking from "./Bus/BusBooking";
+import MyProfile from "./Navbar/MyProfile";
 
 
 
@@ -36,6 +37,7 @@ function App() {
   <Route path="/bus/book/:_id" element={<BusBooking/>}/>
   <Route path="/login" element={<Login/>}/>
   <Route path="/signup" element={<Signup/>}/>
+  <Route path="//myProfile" element={<MyProfile/>}/>
   <Route path="/mysupport/trips" element={<AuthNavigator><MyTrips/></AuthNavigator>}/>
   <Route path="/hotels/search/:location" element={<HotelSearch/>}/>
   <Route path="/checkoutPage" element={<CheckoutPage/>}/>

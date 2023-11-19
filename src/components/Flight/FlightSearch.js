@@ -88,7 +88,7 @@ export default function HotelSearch() {
               <input
                 type="text"
                 id="from"
-                placeholder="HYD..."
+                placeholder="Enter Source...(HYD)"
                 onChange={(e) => setSource(e.target.value)}
                 value={source}
               />
@@ -102,7 +102,7 @@ export default function HotelSearch() {
               <input
                 type="text"
                 id="to"
-                placeholder="BOM...."
+                placeholder="Enter Destination...(BOM)"
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />

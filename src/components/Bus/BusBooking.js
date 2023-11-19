@@ -39,7 +39,20 @@ export default function BusBooking() {
       ) : (
         <div >
               <h1 style={{textAlign:"center",color:"#2176d1"}}>{bus.name}</h1>
-              <main style={{display:"flex",gap:"160px"}}>
+              <main>
+              <section style={{display:"flex",gap:"10%",alignItems:"center",justifyContent:"center",paddingTop:"20px"}}>
+            <div>
+            <h2 style={{color:"#fc6203"}}>Boarding Point</h2>
+            <p>{bus.departureTime}</p>
+            <p>{bus.source}</p>
+            </div>
+            <p>{"---------->"}</p>
+            <div>
+            <h2 style={{color:"#fc6203"}}>Dropping Point</h2>
+            <p>{bus.arrivalTime}</p>
+            <p>{bus.destination}</p>
+            </div>
+          </section>
               <section>
           {bus && (
             <div className="seat-container">
@@ -84,19 +97,7 @@ export default function BusBooking() {
             </div>
           </div>
           </section>
-          <section style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}>
-            <div>
-            <h2 style={{color:"#2176d1"}}>Boarding Point</h2>
-            <p>{bus.departureTime}</p>
-            <p>{bus.source}</p>
-            </div>
-            <p>{"---------->"}</p>
-            <div>
-            <h2 style={{color:"#2176d1"}}>Dropping Point</h2>
-            <p>{bus.arrivalTime}</p>
-            <p>{bus.destination}</p>
-            </div>
-          </section>
+          
           </main>
         </div>
       )}

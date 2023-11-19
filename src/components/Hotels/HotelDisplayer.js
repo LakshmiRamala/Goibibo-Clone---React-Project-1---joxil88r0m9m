@@ -59,7 +59,7 @@ export default function HotelDisplayer({ hotelId, closeModal }) {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  padding: "10px",
+                  padding: "1%",
                   alignItems: "center",
                 }}
               >
@@ -79,7 +79,7 @@ export default function HotelDisplayer({ hotelId, closeModal }) {
                     src={hotels.images[currentImageIndex]}
                     width={600}
                     height={400}
-                    style={{ borderRadius: "25px", marginLeft: "20px" }}
+                    style={{ borderRadius: "25px", marginLeft: "2%" }}
                   />
                 </div>
                 <NavLink

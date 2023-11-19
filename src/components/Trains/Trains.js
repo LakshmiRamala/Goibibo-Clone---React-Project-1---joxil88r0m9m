@@ -18,15 +18,18 @@ export default function Trains(){
         if (source && destination && day) {
             navigate(`/trains/${source}&${destination}`, { state: { source, destination, day } });
         }
+        else{
+          alert("Please Provide all details");
+        }
     };
     return (
         <div className="flights">
             <h2 className="heading">Train Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
                 <div id="journeyinfo">
-                    <input type="text" id="from" placeholder="From..." onChange={(e) => setSource(e.target.value)} value={source} />
+                    <input type="text" id="from" placeholder="Enter Source...(Delhi)" onChange={(e) => setSource(e.target.value)} value={source} />
                     <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>
-                    <input type="text" id="to" placeholder="To...." onChange={(e) => setDestination(e.target.value)} value={destination} />
+                    <input type="text" id="to" placeholder="Enter Destination....(Hyderabad)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
                         <option value="" disabled>Select day</option>
                         <option value="Mon">Monday</option>

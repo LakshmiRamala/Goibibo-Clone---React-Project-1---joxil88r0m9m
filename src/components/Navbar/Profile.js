@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuth } from "../provider/AuthProvider";
 import { Button, Menu, MenuItem } from "@mui/material";
 
 export const Profile = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useAuth();
   const userName = JSON.parse(sessionStorage.getItem("userName"));
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -27,12 +27,18 @@ export const Profile = () => {
     sessionStorage.removeItem("userToken");
     sessionStorage.removeItem("userName");
     sessionStorage.removeItem("userEmail");
+    sessionStorage.removeItem("userPassword");
+    sessionStorage.removeItem("bookingId");
+    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("details");
+    sessionStorage.removeItem("hotelDetails");
     setIsLoggedIn(false);
     navigateHandler("/login");
   };
 
   return (
     <section>
+    
       <section onClick={handleClick}>
         <section className="profile-icon">
           <AccountCircleIcon color="primary" fontSize="large" />
@@ -41,9 +47,7 @@ export const Profile = () => {
       </section>
 
       <Menu
-        id="profile-menu"
         anchorEl={anchorEl}
-        keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
@@ -51,6 +55,7 @@ export const Profile = () => {
           <section>
             <MenuItem onClick={logout}>Logout</MenuItem>
             <MenuItem onClick={() => navigateHandler("/mysupport/trips")}>Trips</MenuItem>
+            <MenuItem onClick={() => navigateHandler("/myProfile")}>My Profile</MenuItem>
           </section>
         ) : (
           <section>

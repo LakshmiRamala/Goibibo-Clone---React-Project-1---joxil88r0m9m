@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 
 export default function Hotels() {
@@ -12,6 +11,9 @@ export default function Hotels() {
     if(location){
     navigate(`/hotels/search/${location}`);
     }
+    else{
+      alert("Please Provide all details");
+    }
     }
 
   return (
@@ -20,11 +22,11 @@ export default function Hotels() {
       <form className="details" onSubmit={handlesubmit}>
         <div id="location">
           <span id="hotellocation">
-            <label htmlFor="location" style={{fontSize:"24px"}}>Enter City Name:</label>
             <input
               type="text"
               id="location"
               name="city"
+              placeholder="Enter City....(Hyderbad)"
               onChange={(e) => setLocation(e.target.value)}
               style={{textTransform:"uppercase"}}
             />

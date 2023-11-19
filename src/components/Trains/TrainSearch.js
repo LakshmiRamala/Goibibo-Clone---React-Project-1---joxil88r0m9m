@@ -102,7 +102,7 @@ export default function TrainSearch() {
               <input
                 type="text"
                 id="from"
-                placeholder="From..."
+                placeholder="Enter Source...(Delhi)"
                 onChange={(e) => setSource(e.target.value)}
                 value={source}
               />
@@ -116,7 +116,7 @@ export default function TrainSearch() {
               <input
                 type="text"
                 id="to"
-                placeholder="To...."
+                placeholder="Enter Destination..(Hyderabad)"
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />

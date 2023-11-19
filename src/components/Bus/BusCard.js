@@ -20,10 +20,13 @@ export default function BusCard({ details }) {
                 <div id="flightbookindetails" style={{ margin: "30px 0px" }}>
                     <span>
                         <p style={{ color: "blue" }}>{source}</p>
+                       
                         <h3 style={{ fontWeight: "500" }}>{departureTime}</h3>
                     </span>
+                   
                     <span>
                         <p style={{ color: "blue" }}>{destination}</p>
+                       
                         <h3 style={{ fontWeight: "500" }}>{arrivalTime}</h3>
                     </span>
                     <span>
