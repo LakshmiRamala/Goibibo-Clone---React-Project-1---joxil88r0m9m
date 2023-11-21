@@ -278,11 +278,19 @@ nav #managebooking {
   color: white;
   box-shadow: 0px 10px 20px rgba(38, 38, 38, 0.2);
   border-radius: 30px;
+  >.inputFeild{
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: space-between;
+
+  }
 
   >.inputFeild input {
+    
     height: 2em;
-    width: 18em;
-    font-size: 1em;
+    width: 100%;
+    font-size: 14px;
   }
 
   >.inputFeild label {
