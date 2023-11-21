@@ -68,7 +68,7 @@ export default function Login() {
       </div>
       <div className="submitform">
         <input type="submit" value="Login" />
-        <h4 style={{padding:"20px"}}>{message}</h4>
+        <h4 className="login-message">{message}</h4>
       </div>
     </form>
   );

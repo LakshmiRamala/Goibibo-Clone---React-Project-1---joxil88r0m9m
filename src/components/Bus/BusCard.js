@@ -12,41 +12,38 @@ export default function BusCard({ details }) {
         
 
     return (
-        <div className="hotelcard">
-            <div  >
-                <div style={{ textAlign: "center" }}>
+        <div className="Flightcard">
+                <div className="busCard-container">
                     <h2 style={{ color: "red" }}>{name}</h2>
                 </div>
-                <div id="flightbookindetails" style={{ margin: "30px 0px" }}>
+                <div className="flightbookindetails">
                     <span>
                         <p style={{ color: "blue" }}>{source}</p>
-                       
-                        <h3 style={{ fontWeight: "500" }}>{departureTime}</h3>
+                        <h3>{departureTime}</h3>
                     </span>
                    
                     <span>
                         <p style={{ color: "blue" }}>{destination}</p>
                        
-                        <h3 style={{ fontWeight: "500" }}>{arrivalTime}</h3>
+                        <h3>{arrivalTime}</h3>
                     </span>
                     <span>
                         <p style={{ color: "blue" }}>Available: {available ? "true": "false" }</p>
-                        <h3 style={{ fontWeight: "500" }}>No of Seats: {seats}</h3>
+                        <h3>No of Seats: {seats}</h3>
                     </span>
                     <span>
                         <p style={{ color: "blue" }}>{type}</p>
-                        <h3 style={{ fontWeight: "500" }}>Ratings: {ratings}</h3>
+                        <h3>Ratings: {ratings}</h3>
                     </span>
 
                 </div>
-                <div style={{ textAlign: "center" }}>
+                <div className="busresponsive-button">
 
-                    <h3 style={{ fontWeight: "500" }}>Ticket Price: ₹{fare}</h3>
-                    <button onClick={handleClick} style={{ cursor: "pointer", backgroundColor: "darkBlue", color: "white", borderRadius: "12px", padding: "8px" }}>SELECT SEAT</button>
+                    <h3>Ticket Price: ₹{fare}</h3>
+                    <button onClick={handleClick}>SELECT SEAT</button>
                 </div>
-                <p style={{ color: "green", fontWeight: "500", textAlign: "center" }}>{benifits}</p>
+                <p className="bus-benifits">{benifits}</p>
 
-            </div>
             
         </div>
     );

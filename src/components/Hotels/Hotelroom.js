@@ -39,25 +39,22 @@ export default function Hotelroom({ details, hotelId, hotelDetails }) {
         if (bookingId) {
           sessionStorage.setItem("bookingId", bookingId);
           sessionStorage.setItem("userId", JSON.stringify(res.data.bookingId.user));
-
-          // Navigate to "/checkoutPage"
           navigate("/checkoutPage");
         }
       } catch (err) {
         console.error("Error:", err);
       }
     } else {
-      // Navigate to "/login" with state information
       navigate("/login", { state: { prevPath: "/checkoutPage" } });
     }
   };
 
   return (
     <div className="room-details">
-      <p>Room No: {roomNumber}</p>
-      <p>Room Type: {roomType}</p>
-      <p>Price: {price}</p>
-      <p>Bed Details: {bedDetail}</p>
+      <p>{roomNumber}</p>
+      <p>{roomType}</p>
+      <p>₹{price}</p>
+      <p>{bedDetail}</p>
       <button onClick={handleBookNow}>Book This Now</button>
     </div>
   );

@@ -225,15 +225,8 @@ export default function HotelSearch() {
                     handleFilterChange("sortPrice", !selectedFilters.sortPrice)
                   }
                   value="Sort by Price"
-                  style={{
-                    borderRadius: "25px",
-                    height: "40px",
-                    width: "120px",
-                    cursor: "pointer",
-                    border: "none",
-                    backgroundColor: "lightblue",
-                    fontSize: "16px",
-                  }}
+                  className="flight-price-filter"
+                 
                 />
               </form>
 
@@ -251,19 +244,11 @@ export default function HotelSearch() {
                     )
                   }
                   value="Sort by duration"
-                  style={{
-                    borderRadius: "25px",
-                    height: "40px",
-                    width: "120px",
-                    cursor: "pointer",
-                    border: "none",
-                    backgroundColor: "lightblue",
-                    fontSize: "16px",
-                  }}
+                 className="flight-price-filter"
                 />
               </form>
               
-              <button onClick={handleResetFilters} style={{ margin: "10px" }}>
+              <button onClick={handleResetFilters} className="filight-filter-reset">
                 Reset filters
               </button>
             </div>
@@ -288,11 +273,12 @@ export default function HotelSearch() {
               .sort((a, b) => {
                 if (selectedFilters.sortDuration) {
                   return a.duration - b.duration;
+                  
                 }
                 return 0;
               })
               .map((flight) => (
-                <FlightCard details={flight} key={flight._id} />
+                <FlightCard details={flight} key={flight._id} flightId={flight._id}/>
               ))}
           </div>
         </section>

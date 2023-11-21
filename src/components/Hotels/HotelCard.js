@@ -18,7 +18,7 @@ export default function HotelCard({ details }) {
           <img src={images[0]} width={300} height={240} alt={name} />
         </span>
         <span style={{ textAlign: "center" }}>
-          <h2 style={{ color: "orange", fontSize: "28px" }}>{name}</h2>
+          <h2 style={{ color: "orange" }} className="hotel-card-name">{name}</h2>
           <h3 style={{ color: "blue" }}>{location}</h3>
           <h2>{rating}/5</h2>
         </span>

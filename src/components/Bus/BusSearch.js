@@ -262,18 +262,10 @@ export default function BusSearch() {
                     handleFilterChange("sortPrice", !selectedFilters.sortPrice)
                   }
                   value="Sort by Price"
-                  style={{
-                    borderRadius: "25px",
-                    height: "40px",
-                    width: "120px",
-                    cursor: "pointer",
-                    border: "none",
-                    backgroundColor: "lightblue",
-                    fontSize: "16px",
-                  }}
+                  className="bussearch-sort"
                 />
               </form>
-              <button onClick={handleResetFilters} style={{ margin: "10px" }}>
+              <button onClick={handleResetFilters} className="busfilters-button" >
                 Reset filters
               </button>
             </div>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Payment from "./Payment";
 
 
-export default function CheckoutPage() {
+export default function CheckoutTrainPage() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [type, setType] = useState("");
@@ -11,13 +10,9 @@ export default function CheckoutPage() {
   const [phone, setPhone] = useState("");
 
  
-  const details =JSON.parse( sessionStorage.getItem("details"));
-  const hotelDetails=JSON.parse(sessionStorage.getItem("hotelDetails"));
+  const details =JSON.parse( sessionStorage.getItem("trainDeatils"));
   const [modalOpen, setModalOpen] = useState(false);
-  console.log(details,hotelDetails);
-
- 
-
+  
   const handlePayment = (e) => {
     e.preventDefault();
     if (firstname && lastname && country && email && phone) {
@@ -28,44 +23,39 @@ export default function CheckoutPage() {
     }
     
   };
-  let total=1678+details.price;
+//   let totalPrice=1678+details.ticketPrice;
   
   return (
       <div className="checkout-container"> 
       <div className="flight-checkout-container">
-        
-    <section className="checkout-hotel-info hotelFinal" >
-      <h2>HOTEL INFO</h2>
-      <div id="checkout-hotel">
-      <img src={hotelDetails.images[0]} width={160}
-        height={200} style={{borderRadius:"12px"}}/>
-        <main>
-        <h1>{hotelDetails.name}</h1>
-        <p>{hotelDetails.location}</p>
-        <p>Rating: {hotelDetails.rating}</p>
-        </main>
-        </div>
-        <section>
-        <h2 style={{color:"#2176d1"}}>Room Deatils</h2>
-        <div className="chechout-room">
-        <main className="checkout-room-details">
-        <p>Room Number :{details.roomNumber}</p>
-        <p>Room Type: {details.roomType}</p>
-        <p>Room Size: {details.roomSize}</p>
-        <p>Price: {details.price}</p>
-        </main>
-        <main style={{color:"green"}}>
-          <p>{details.bedDetail}</p>
-          <p>{details.cancellationPolicy}</p>
-        </main>
-        </div>
-        </section>
+    <section className="checkout-hotel-info checkout-Flight-Info" >
+      {/* <h2>TRAIN INFO</h2>
+      <div>
+        <p>{details.airline}</p>
+          <h4 style={{color:"red"}}>{details.flightID}</h4>
+            </div>
+            <div className="flightbookindetails">
+                <span>
+                    <p style={{color:"grey"}}>SOURCE: {details.source}</p>
+                    <h3>Depature Time: {details.departureTime}</h3>
+                </span>
+                <span>
+                <p style={{color:"grey"}}>Duration: {details.duration}</p>
+                <p>--------------</p>
+                </span>
+                <span>
+                    <p style={{color:"grey"}}>Destination: {details.destination}</p>
+                    <h3>Arrival Time: {details.arrivalTime}</h3>
+                </span>
+                
+      </div>
+      <p>Baggage -7 Kgs (1 piece only) Cabin</p>
     </section>
-     <section className="flight-price-details">
+    <section className="flight-price-details">
       <h1>FARE SUMMARY</h1>
       <span className="grand-total">
         <p>Base fare</p>
-        <h3>₹{details.price}</h3>
+        <h3>₹{details.ticketPrice}</h3>
       </span>
       <span className="grand-total">
         <p>Taxes and Surcharges</p>
@@ -73,8 +63,8 @@ export default function CheckoutPage() {
       </span>
       <span style={{color:"#2176d1"}} className="grand-total">
         <h2>Grand Total</h2>
-        <h3>₹{total}</h3>
-      </span>
+        <h3>₹{totalPrice}</h3>
+      </span> */}
 
     </section>
     </div>
@@ -119,8 +109,8 @@ export default function CheckoutPage() {
     </form>
     </section>
     
-    {modalOpen && <Payment details={details} hotelDetails=
-    {hotelDetails} total={total} closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
+    {modalOpen && <FlightPayment details={details} total={totalPrice} 
+    closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
 
     </div>
     

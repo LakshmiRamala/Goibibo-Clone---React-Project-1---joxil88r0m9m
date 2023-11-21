@@ -250,15 +250,8 @@ export default function TrainSearch() {
                     handleFilterChange("sortPrice", !selectedFilters.sortPrice)
                   }
                   value="Sort by Price"
-                  style={{
-                    borderRadius: "25px",
-                    height: "40px",
-                    width: "120px",
-                    cursor: "pointer",
-                    border: "none",
-                    backgroundColor: "lightblue",
-                    fontSize: "16px",
-                  }}
+                  className="train-filter-price"
+                 
                 />
               </form>
 
@@ -276,19 +269,12 @@ export default function TrainSearch() {
                     )
                   }
                   value="Sort by duration"
-                  style={{
-                    borderRadius: "25px",
-                    height: "40px",
-                    width: "120px",
-                    cursor: "pointer",
-                    border: "none",
-                    backgroundColor: "lightblue",
-                    fontSize: "16px",
-                  }}
+                  className="train-filter-price"
+  
                 />
               </form>
 
-              <button onClick={handleResetFilters} style={{ margin: "10px" }}>
+              <button onClick={handleResetFilters} id="train-reset-button">
                 Reset filters
               </button>
             </div>
@@ -323,7 +309,7 @@ export default function TrainSearch() {
               })
 
               .map((train) => (
-                <TrainCard details={train} key={train._id} />
+                <TrainCard details={train} key={train._id} trainId={train._id}/>
               ))}
           </div>
         </section>

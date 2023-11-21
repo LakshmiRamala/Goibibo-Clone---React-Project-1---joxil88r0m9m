@@ -17,11 +17,13 @@ import TrainSearch from "./Trains/TrainSearch";
 import BusSearch from "./Bus/BusSearch";
 import BusBooking from "./Bus/BusBooking";
 import MyProfile from "./Navbar/MyProfile";
+import CheckoutFlightPage from "./Flight/CheckoutFlightPage";
+import CheckoutTrainPage from "./Trains/CheckoutTrainPage";
+import BusCheckout from "./Bus/BusCheckout";
 
 
 
 function App() {
-
   return <div className="App">
     <AuthProvider>
 <Navbar/>
@@ -29,7 +31,10 @@ function App() {
 
   <Route path="/flights" element={<Flights/>}/>
   <Route path="/flights/:search" element={<FlightSearch/>}/>
+  <Route path="/flights/checkout" element={<CheckoutFlightPage/>}/>
+  <Route path="/trains/checkout" element={<CheckoutTrainPage/>}/>
   <Route path="/trains/:search" element={<TrainSearch/>}/>
+  <Route path="/bus/checkout" element={<BusCheckout/>}/>
   <Route path="/hotels" element={<Hotels/>}/>
   <Route path="/trains" element={<Trains/>}/>
   <Route path="/bus" element={<Bus/>}/>
@@ -37,7 +42,7 @@ function App() {
   <Route path="/bus/book/:_id" element={<BusBooking/>}/>
   <Route path="/login" element={<Login/>}/>
   <Route path="/signup" element={<Signup/>}/>
-  <Route path="//myProfile" element={<MyProfile/>}/>
+  <Route path="/myProfile" element={<MyProfile/>}/>
   <Route path="/mysupport/trips" element={<AuthNavigator><MyTrips/></AuthNavigator>}/>
   <Route path="/hotels/search/:location" element={<HotelSearch/>}/>
   <Route path="/checkoutPage" element={<CheckoutPage/>}/>

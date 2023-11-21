@@ -20,9 +20,8 @@ import { Profile } from "./Profile";
                 <li><NavLink  className="navlink" to="/trains"><TrainIcon color="primary"/>Trains</NavLink></li>
                 <li><NavLink  className="navlink" to="/bus"><DirectionsBusIcon color="primary"/>Bus</NavLink></li>    
                  <li><NavLink id="mytrip" to="/mysupport/trips"><LuggageIcon fontSize="large"/><span>My Trips</span><br/> <span id="managebooking">Manage Booking</span></NavLink></li>
-
+                 <Profile/>
             </ul>
-            <Profile/>
         </nav>
     )
  }

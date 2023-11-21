@@ -20,11 +20,10 @@ export default function Hotels() {
     <div className="hotel">
       <h2 className="heading">Book Hotels & Homestays</h2>
       <form className="details" onSubmit={handlesubmit}>
-        <div id="location">
+        <div className="location">
           <span id="hotellocation">
             <input
               type="text"
-              id="location"
               name="city"
               placeholder="Enter City....(Hyderbad)"
               onChange={(e) => setLocation(e.target.value)}

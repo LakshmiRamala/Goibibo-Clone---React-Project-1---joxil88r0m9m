@@ -3,7 +3,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 
-export default function Payment({ details,hotelDetails,total, closeModal,userDetails }) {
+export default function TrainPayment({ details,total, closeModal,userDetails }) {
 
   return (
     <div className="modal-container">
@@ -13,8 +13,8 @@ export default function Payment({ details,hotelDetails,total, closeModal,userDet
         </span>
         <h1 style={{color:"#fc6203"}}>Pay ₹ {total} to confirm booking</h1>
         <div className="payment-user">
-            <h2>{hotelDetails.name}</h2>
-            <p>{hotelDetails.location}</p>
+            <h2>{details.flightID}</h2>
+            <p>{details.source}</p>
             <section>
                 <p> <PersonIcon/> {userDetails.firstname}  {userDetails.lastname}</p>
                 <p><EmailIcon/> {userDetails.email}</p>

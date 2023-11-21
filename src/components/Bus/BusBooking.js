@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../provider/AuthProvider";
 
 export default function BusBooking() {
   const { _id } = useParams();
   const [bus, setBus] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedSeats, setSelectedSeats] = useState([]);
 
   useEffect(() => {
     const getBusData = async () => {
@@ -32,72 +34,140 @@ export default function BusBooking() {
     getBusData();
   }, [_id]);
 
+  const handleSeatClick = (index, event) => {
+    if (bus.available) {
+      const newSelectedSeats = [...selectedSeats];
+      newSelectedSeats[index] = !newSelectedSeats[index];
+      setSelectedSeats(newSelectedSeats);
+      const seatElement = event.target;
+      seatElement.classList.toggle("selectedseat");
+    }
+  };
+
+  
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
+    sessionStorage.setItem("busDeatils", JSON.stringify(bus));
+
+  const  handlebooking = async () => {
+    const greySeatsCount = selectedSeats.filter((seat) => seat).length;
+    sessionStorage.setItem("selectedSeats",greySeatsCount);
+    if (isLoggedIn) {
+      try {
+        const token = sessionStorage.getItem("userToken");
+
+        const config = {
+          headers: {
+            projectId: "9sa80czkq1na",
+            Authorization: `Bearer ${token}`
+          }
+        };
+
+        const requestBody = {
+          bookingType: "bus",
+          bookingDetails: {
+            busId: _id,
+          }
+        };
+
+        const res = await axios.post(
+          "https://academics.newtonschool.co/api/v1/bookingportals/booking",
+          { ...requestBody, appType: "bookingportals" },
+          config
+        );
+
+        const bookingId = res.data.bookingId?._id;
+        if (bookingId) {
+          sessionStorage.setItem("bookingId", bookingId);
+          sessionStorage.setItem("userId", JSON.stringify(res.data.bookingId.user));
+          navigate("/bus/checkout");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    } else {
+      navigate("/login", { state: { prevPath: "/bus/checkout" } });
+    }
+  };
+
   return (
     <main>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div >
-              <h1 style={{textAlign:"center",color:"#2176d1"}}>{bus.name}</h1>
-              <main>
-              <section style={{display:"flex",gap:"10%",alignItems:"center",justifyContent:"center",paddingTop:"20px"}}>
-            <div>
-            <h2 style={{color:"#fc6203"}}>Boarding Point</h2>
-            <p>{bus.departureTime}</p>
-            <p>{bus.source}</p>
-            </div>
-            <p>{"---------->"}</p>
-            <div>
-            <h2 style={{color:"#fc6203"}}>Dropping Point</h2>
-            <p>{bus.arrivalTime}</p>
-            <p>{bus.destination}</p>
-            </div>
-          </section>
-              <section>
-          {bus && (
-            <div className="seat-container">
-              {Array.from({ length: bus.seats }, (_, index) => (
-                <div
-                  key={index + 1}
-                  className={bus.available ? "availableseat" : "bookedseat"}
-                  onClick={(event) => {
-                    if (bus.available) {
-                      const currentColor = event.target.style.backgroundColor;
-                      event.target.style.backgroundColor =
-                        currentColor === "green" ? "grey" : "green";
-                    }
-                  }}
-                >
-                  {index + 1}
+        <div>
+          <h1 className="busbooking-heading">{bus.name}</h1>
+          <main>
+            <section className="busbooking-details">
+              <div>
+                <h2 style={{ color: "#fc6203" }}>Boarding Point</h2>
+                <p>{bus.departureTime}</p>
+                <p>{bus.source}</p>
+              </div>
+              <p>{"---------->"}</p>
+              <div>
+                <h2 style={{ color: "#fc6203" }}>Dropping Point</h2>
+                <p>{bus.arrivalTime}</p>
+                <p>{bus.destination}</p>
+              </div>
+            </section>
+            <section>
+              {bus && (
+                <div className="seat-container">
+                  {Array.from({ length: bus.seats }, (_, index) => (
+                    <div
+                      key={index + 1}
+                      className={
+                        bus.available
+                          ? selectedSeats[index]
+                            ? "selectedseat"
+                            : "availableseat"
+                          : "bookedseat"
+                      }
+                      onClick={(event) => handleSeatClick(index, event)}
+                    >
+                      {index + 1}
+                    </div>
+                  ))}
                 </div>
-              ))}
-
-
-            </div>
-
-          )}
-          <div className="seat-details">
-            <div style={{ display: "flex" }}>
-              <span>Not Available</span>
-              <img src="https://banner2.cleanpng.com/20180215/tuw/kisspng-square-area-angle-pattern-transparent-shapes-cliparts-5a85f2015f1543.6114232115187276813895.jpg"
-                width="40px" height="40px"
-                alt="red box" />
-            </div>
-            <div style={{ display: "flex" }}>
-              <span>Available</span>
-              <img src="https://www.clker.com/cliparts/b/e/c/3/131406375432193858green%20square.png"
-                width="40px" height="40px"
-                alt="green box" />
-            </div>
-            <div style={{ display: "flex" }}>
-              <span>Selected by you</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Grey_Square.svg/2048px-Grey_Square.svg.png"
-                width="40px" height="40px"
-                alt="grey box" />
-            </div>
-          </div>
-          </section>
-          
+              )}
+              <div className="seat-details">
+                <div style={{ display: "flex" }}>
+                  <span>Not Available</span>
+                  <img
+                    src="https://banner2.cleanpng.com/20180215/tuw/kisspng-square-area-angle-pattern-transparent-shapes-cliparts-5a85f2015f1543.6114232115187276813895.jpg"
+                    width="40px"
+                    height="40px"
+                    alt="red box"
+                  />
+                </div>
+                <div style={{ display: "flex" }}>
+                  <span>Available</span>
+                  <img
+                    src="https://www.clker.com/cliparts/b/e/c/3/131406375432193858green%20square.png"
+                    width="40px"
+                    height="40px"
+                    alt="green box"
+                  />
+                </div>
+                <div style={{ display: "flex" }}>
+                  <span>Selected by you</span>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Grey_Square.svg/2048px-Grey_Square.svg.png"
+                    width="40px"
+                    height="40px"
+                    alt="grey box"
+                  />
+                </div>
+               {bus.available && <button
+                  type="submit"
+                  className="busbooking-button"
+                  onClick={handlebooking}
+                >
+                  Book Now
+                </button>}
+              </div>
+            </section>
           </main>
         </div>
       )}

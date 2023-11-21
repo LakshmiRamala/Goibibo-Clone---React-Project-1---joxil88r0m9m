@@ -46,30 +46,30 @@ export default function Trains(){
                 </div>
             </form>
             <div>
-            <main style={{color:"black",marginTop:"50px"}}>
+            <main className="train-container">
               <h1>1 million+ customers</h1>
-              <p style={{fontSize:"20px"}}>book train tickets with us because</p>
+              <p>book train tickets with us because</p>
             </main>
-            <section style={{display:"flex",color:"black",margin:"60px 240px",gap:"30px"}}>
-              <div style={{display:"flex"}}>
+            <section className="train-container-images">
+              <div>
                 <img src="https://gos3.ibcdn.com/no_can_fee-1668596842.svg" alt="benefits icon" width="60" height="60"/>
                 <span>
                 <h2>No Cancellation Fee</h2>
-                <p style={{fontSize:"20px"}}>You can opt for free cancellation & get full refund.</p>
+                <p>You can opt for free cancellation & get full refund.</p>
                 </span>
               </div>
-              <div style={{display:"flex"}}>
+              <div>
               <img src="https://gos3.ibcdn.com/go_cnfrm-1668596688.svg" alt="benefits icon" width="60" height="60"/>
                 <span>
                 <h2>goConfirmed Trip</h2>
-                <p style={{fontSize:"20px"}}>Guaranteed confirmed tickets or we give you 2x refund.</p>
+                <p>Guaranteed confirmed tickets or we give you 2x refund.</p>
                 </span>
               </div>
-              <div style={{display:"flex"}}>
+              <div>
               <img src="https://gos3.ibcdn.com/no_pg_fee_icon-1673341757.png" alt="benefits icon" width="60" height="60"/>
                 <span>
                 <h2>No PG Fee via UPI</h2>
-                <p style={{fontSize:"20px"}}>Zero Payment Gateway Charges via UPI mode</p>
+                <p>Zero Payment Gateway Charges via UPI mode</p>
                 </span>
               </div>
             </section>

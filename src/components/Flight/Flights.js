@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Flights() {
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
+    
     const [day, setDay] = useState("");
     const navigate = useNavigate();
 

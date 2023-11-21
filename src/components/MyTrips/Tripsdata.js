@@ -1,16 +1,19 @@
-// Tripsdata.js
 import React from "react";
 
 export default function Tripsdata({ details }) {
-    console.log("detais",details);
-    return (
-        <div className="hotelcard" style={{margin:"5% 18%"}} >
-            <div className="mytripscard">
-                <p>Booking Type: {details.booking_type}</p>
-                <h2 style={{color:"#fc6203"}}>Hotel Name: {details.hotel.name}</h2>
-                <p>{details.hotel.location}</p>
-            </div>
-        </div>
-    );
-}
+  console.log("details", details);
 
+  const formattedDate = new Date(details.created_at).toLocaleDateString();
+  const formattedTime= new Date(details.created_at).toLocaleTimeString();
+
+  return (
+    <div className="hotelcard tripsdata-hotel">
+      
+        <p>{details._id}</p>
+        <p>{details.booking_type}</p>
+        <p>{details.status}</p>
+        <p>{formattedDate} {formattedTime}</p>
+      </div>
+   
+  );
+}
