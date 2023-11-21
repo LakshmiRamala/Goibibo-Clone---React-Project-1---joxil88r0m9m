@@ -70,7 +70,6 @@ export default function HotelSearch() {
               }}
             />
           </div>
-          <div className="hotel-whole">
           <div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
@@ -167,12 +166,11 @@ export default function HotelSearch() {
                   />
                   <label htmlFor="four"> ₹9000+</label>
                 </span>
-              </form>
-
-              <button onClick={handleResetFilters} className="hotel-reset-button">
+                <button onClick={handleResetFilters} className="hotel-reset-button">
                 Reset filters
               </button>
-            </div>
+              </form>
+          </div>
           </div>
 
           <div className="hotel-list-container">
@@ -189,7 +187,6 @@ export default function HotelSearch() {
                 <HotelCard details={hotel} key={hotel._id} />
               ))}
               </div>
-          </div>
         </section>
       )}
     </main>

@@ -230,7 +230,7 @@ nav #managebooking {
   justify-content: center;
   background-color: #2176d1;
   height: 6em;
-  width: 100vw;
+  /* width: 100vw; */
 
   >input {
     padding: 0.4em;
@@ -1098,3 +1098,108 @@ border-radius: 25px;
   justify-content: center;
   align-items: center;
 } 
+@media (max-width: 768px) {
+
+  #logo {
+    height: 80px;
+    margin: 0;
+  }
+
+  .App {
+    height: auto;
+  }
+
+  .profile-icon {
+    width: 3em;
+    height: 3em;
+  }
+
+  .auth-modal {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-container {
+    flex-direction: column;
+  }
+
+  .navbar {
+    flex-direction: column;
+    margin-top: 0.5em;
+  }
+
+  .navlink {
+    margin: 0.5em 0;
+  }
+
+  #mytrip, #managebooking {
+    margin-left: 0;
+  }
+
+  .flights, .hotel {
+    height: auto;
+  }
+
+  .details {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  #searchhotel, #searchflight {
+    margin: 4% 0;
+  }
+
+  .form-container {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .hotelcard, .flightcard {
+    margin: 4% 5%;
+    width: 90%;
+  }
+
+  .checkout-container, .checkout-hotel-info {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .payment-content {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .user-profile-details, .personal-info, .checkout-guest {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .busbooking-details {
+    flex-direction: column;
+  }
+
+  .traincard {
+    width: 90%;
+    margin: 4% 5%;
+  }
+
+  #train-available-seats {
+    text-align: left;
+  }
+
+  .train-container-images, .train-filter-price {
+    margin: 2em 5%;
+  }
+
+  #train-reset-button, .hotel-reset-button, .busfilters-button, .flight-price-filter, .filight-filter-reset {
+    margin: 0.625em 0;
+  }
+
+  .flight-checkout-container, .flight-price-details {
+    width: 100%;
+  }
+
+  .grand-total, .busbooking-button, .payment-button button {
+    width: 100%;
+  }
+}
