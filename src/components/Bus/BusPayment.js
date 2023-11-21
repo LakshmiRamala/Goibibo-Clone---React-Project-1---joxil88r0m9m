@@ -8,9 +8,9 @@ export default function BusPayment({ details,total, closeModal,userDetails }) {
   return (
     <div className="modal-container">
       <div className="payment-content">
-        <span className="close" onClick={closeModal}>
-        <span>x</span>
-        </span>
+      <button className="close" onClick={() => closeModal(false)}>
+              X
+            </button>
         <h1 style={{color:"#fc6203"}}>Pay ₹ {total} to confirm booking</h1>
         <div className="payment-user">
             <h2>{details.name}</h2>

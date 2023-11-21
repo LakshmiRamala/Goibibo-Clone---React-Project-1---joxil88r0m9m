@@ -762,9 +762,11 @@ display: flex;
 }
 
 .payment-content {
+  position: relative;
   background-color: white;
   padding: 2%;
-  width: 50%;
+  width: 60%;
+  height: 80%;
 
 }
 .main-user{
