@@ -1074,6 +1074,7 @@ border-radius: 25px;
     display: flex;
     flex-direction: column;
     gap: 1.25em;
+
   }
   .flight-price-details{
     background-color:white;
@@ -1275,9 +1276,14 @@ border-radius: 25px;
     width: 70%;
     padding: 5%;
   }
+ 
+
   .trainbutton{
     margin-top: 0.4%;
     padding: 3%;
+  }
+  .checkout-Flight-Info{
+    height: 20em;
   }
   .checkout-bus-info{
     height: 60%;

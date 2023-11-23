@@ -37,16 +37,16 @@ export default function CheckoutFlightPage() {
             </div>
             <div className="flightbookindetails">
                 <span>
-                    <p style={{color:"grey"}}>SOURCE: {details.source}</p>
-                    <h3>Depature Time: {details.departureTime}</h3>
+                    <p style={{color:"grey"}}>{details.source}</p>
+                    <h3>{details.departureTime}</h3>
                 </span>
                 <span>
                 <p style={{color:"grey"}}>Duration: {details.duration}</p>
-                <p>--------------</p>
+                <p>---</p>
                 </span>
                 <span>
-                    <p style={{color:"grey"}}>Destination: {details.destination}</p>
-                    <h3>Arrival Time: {details.arrivalTime}</h3>
+                    <p style={{color:"grey"}}>{details.destination}</p>
+                    <h3>{details.arrivalTime}</h3>
                 </span>
                 
       </div>
