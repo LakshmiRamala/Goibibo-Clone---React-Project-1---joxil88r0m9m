@@ -43,7 +43,7 @@ export default function Flights() {
                         <option value="Sun">Sunday</option>
                     </select>
                 </div>
-                <div className="searchflight">
+                <div id="searchflight">
                     <button type="submit" id="searchflights">Search Flights</button>
                 </div>
             </form>

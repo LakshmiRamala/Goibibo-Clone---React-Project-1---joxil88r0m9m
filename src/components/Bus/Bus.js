@@ -27,7 +27,7 @@ export default function Bus() {
         <div className="flights" style={{backgroundColor:"#2176d1"}}>
             <h2 className="heading">Bus Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
-                <div id="journeyinfo">
+                <div className="journeyinfo">
                     <input type="text" id="from" placeholder="Enter Source....(Hyderabad)" onChange={(e) => setSource(e.target.value)} value={source} />
                     <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>
                     <input type="text" id="to" placeholder="Enter Destination....(Gujarat)" onChange={(e) => setDestination(e.target.value)} value={destination} />
@@ -42,7 +42,7 @@ export default function Bus() {
                         <option value="Sun">Sunday</option>
                     </select>
                 </div>
-                <div id="searchflight">
+                <div className="searchflight">
                     <button type="submit" id="searchflights" style={{backgroundColor:"#2176d1"}}>Search Bus</button>
                 </div>
             </form>

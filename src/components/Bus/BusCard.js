@@ -43,7 +43,6 @@ export default function BusCard({ details }) {
                     <button onClick={handleClick}>SELECT SEAT</button>
                 </div>
                 <p className="bus-benifits">{benifits}</p>
-
             
         </div>
     );

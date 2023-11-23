@@ -7,8 +7,7 @@ export default function Tripsdata({ details }) {
   const formattedTime= new Date(details.created_at).toLocaleTimeString();
 
   return (
-    <div className="hotelcard tripsdata-hotel">
-      
+    <div className="tripsdata-hotel">
         <p>{details._id}</p>
         <p>{details.booking_type}</p>
         <p>{details.status}</p>

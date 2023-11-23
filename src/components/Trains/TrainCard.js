@@ -67,7 +67,7 @@ export default function TrainCard({ details, trainId }) {
         };
 
         const requestBody = {
-          bookingType: "train",
+          bookingType: "trains",
           bookingDetails: {
             trainId: trainId,
           },
@@ -94,7 +94,7 @@ export default function TrainCard({ details, trainId }) {
   };
 
   return (
-    <div className="hotelcard">
+    <div className="traincard">
       <div className="trainheading">
         <h1>
           {trainNumber} {trainName}({trainType})
@@ -105,7 +105,7 @@ export default function TrainCard({ details, trainId }) {
         <h3>
           {departureTime} {source}
         </h3>
-        <p>----{travelDuration}----</p>
+        <p>--{travelDuration}--</p>
         <h3>
           {arrivalTime} {destination}
         </h3>

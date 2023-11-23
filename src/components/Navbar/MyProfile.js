@@ -38,8 +38,8 @@ export default function MyProfile() {
           <form onSubmit={handleSubmit}>
             <h2>Personal Information</h2>
             <div className="personal-data">
-               <input type="tel" placeholder="123-456-1234" id="phone"
-                name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"   value={phone} onChange={(e)=>setPhone(e.target.value)}/>
+               <input type="tel" placeholder="Enter your phone number" id="phone"
+                name="phone" pattern="[0-9]{10}"   value={phone} onChange={(e)=>setPhone(e.target.value)}/>
     
               <input
                 type="email"

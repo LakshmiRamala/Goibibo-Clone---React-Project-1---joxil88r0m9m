@@ -15,21 +15,21 @@ export default function Trains(){
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (source && destination && day) {
+        if ( day) {
             navigate(`/trains/${source}&${destination}`, { state: { source, destination, day } });
         }
         else{
-          alert("Please Provide all details");
+          alert("Please Provide day");
         }
     };
     return (
         <div className="flights">
             <h2 className="heading">Train Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
-                <div id="journeyinfo">
-                    <input type="text" id="from" placeholder="Enter Source...(Delhi)" onChange={(e) => setSource(e.target.value)} value={source} />
+                <div className="journeyinfo">
+                    <input type="text" id="from" placeholder="Enter Source.(secunderabad))" onChange={(e) => setSource(e.target.value)} value={source} />
                     <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>
-                    <input type="text" id="to" placeholder="Enter Destination....(Hyderabad)" onChange={(e) => setDestination(e.target.value)} value={destination} />
+                    <input type="text" id="to" placeholder="Enter Destination..(varanasi)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
                         <option value="" disabled>Select day</option>
                         <option value="Mon">Monday</option>
@@ -41,7 +41,7 @@ export default function Trains(){
                         <option value="Sun">Sunday</option>
                     </select>
                 </div>
-                <div id="searchflight">
+                <div className="searchflight trainbutton">
                     <button type="submit" id="searchflights">Search Trains</button>
                 </div>
             </form>

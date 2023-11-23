@@ -33,19 +33,19 @@ export default function BusCheckout() {
   return (
       <div className="checkout-container"> 
       <div className="flight-checkout-container">
-    <section className="checkout-hotel-info checkout-Flight-Info" >
+    <section className="checkout-hotel-info checkout-Flight-Info checkout-bus-info" >
       <h2>BUS INFO</h2>
       <div>
         <p>{details.airline}</p>
           <h1 style={{color:"red"}}>{details.name}</h1>
             </div>
-            <div className="flightbookindetails">
+            <div className="flightbookindetails trainbookingdetails">
                 <span>
                     <p style={{color:"grey"}}>SOURCE: {details.source}</p>
                     <h3>Depature Time: {details.departureTime}</h3>
                 </span>
                 <span>
-                <p>--------------</p>
+                
                 </span>
                 <span>
                     <p style={{color:"grey"}}>Destination: {details.destination}</p>
@@ -102,8 +102,7 @@ export default function BusCheckout() {
     <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
     
     <p>Mobile Number</p>
-    <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e)=>setPhone(e.target.value)}/>
-    <small>Format: 123-456-7890</small>
+    <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{10}" onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div className="payment-button">
     <button  type="submit" >Proceed To Payment Options</button>

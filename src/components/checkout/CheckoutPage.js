@@ -109,8 +109,7 @@ export default function CheckoutPage() {
     <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
     
     <p>Mobile Number</p>
-    <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e)=>setPhone(e.target.value)}/>
-    <small>Format: 123-456-7890</small>
+    <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{10}" onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div className="payment-button">
     <button  type="submit" >Proceed To Payment Options</button>
