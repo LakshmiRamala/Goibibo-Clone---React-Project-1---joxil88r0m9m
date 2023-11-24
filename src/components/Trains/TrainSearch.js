@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import TrainCard from "./TrainCard";
+import HomeNav from "../Navbar/HomeNav";
 
 export default function TrainSearch() {
   const location = useLocation();
@@ -93,6 +94,7 @@ export default function TrainSearch() {
 
   return (
     <main>
+      <HomeNav/>
       {loading ? (
         <p>Loading...</p>
       ) : (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Tripsdata from "./Tripsdata";
+import HomeNav from "../Navbar/HomeNav";
 
 export default function MyTrips() {
   const token = sessionStorage.getItem("userToken");
@@ -31,6 +32,7 @@ export default function MyTrips() {
 
   return (
     <main>
+      <HomeNav/>
         <div className="myrips">
             Your Trips
         </div>

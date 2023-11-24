@@ -1,6 +1,7 @@
 import React, {  useState } from "react";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 export default function Bus() {
     const [source, setSource] = useState("");
@@ -25,6 +26,7 @@ export default function Bus() {
     };
     return (
         <div className="flights" style={{backgroundColor:"#2176d1"}}>
+            <Navbar/>
             <h2 className="heading">Bus Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
                 <div className="journeyinfo">

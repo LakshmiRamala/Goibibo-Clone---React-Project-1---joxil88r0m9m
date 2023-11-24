@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
+import Navbar from "../Navbar/Navbar";
 
 export default function SignUp() {
   const [message, setMessage] = useState("");
@@ -59,6 +60,8 @@ export default function SignUp() {
   };
 
   return (
+    <div className="form-display">
+      <Navbar/>
     <form className="form-container" onSubmit={handleFormSubmit}>
       <h1>Sign Up</h1>
       <div className="inputFeild">
@@ -83,5 +86,6 @@ export default function SignUp() {
       </div>
       <h4>{message}</h4>
     </form>
+    </div>
   );
 }

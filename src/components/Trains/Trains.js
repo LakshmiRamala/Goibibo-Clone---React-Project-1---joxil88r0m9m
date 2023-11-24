@@ -1,6 +1,7 @@
 import React, { useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
+import Navbar from "../Navbar/Navbar";
 export default function Trains(){
   const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
@@ -24,6 +25,7 @@ export default function Trains(){
     };
     return (
         <div className="flights">
+          <Navbar/>
             <h2 className="heading">Train Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
                 <div className="journeyinfo">
@@ -45,8 +47,8 @@ export default function Trains(){
                     <button type="submit" id="searchflights">Search Trains</button>
                 </div>
             </form>
-            <div>
-            <main className="train-container">
+            {window.innerWidth>768 &&  <div>
+           <main className="train-container">
               <h1>1 million+ customers</h1>
               <p>book train tickets with us because</p>
             </main>
@@ -73,7 +75,7 @@ export default function Trains(){
                 </span>
               </div>
             </section>
-            </div>
+            </div>}
     </div>
   );
 

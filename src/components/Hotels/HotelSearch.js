@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import HotelCard from "./HotelCard";
+import HomeNav from "../Navbar/HomeNav";
 
 export default function HotelSearch() {
   const { location } = useParams();
@@ -55,6 +56,7 @@ export default function HotelSearch() {
 
   return (
     <main>
+      <HomeNav/>
       {loading ? (
         <p>Loading...</p>
       ) : (

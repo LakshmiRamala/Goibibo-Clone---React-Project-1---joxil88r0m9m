@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FlightPayment from "./FlightPayment";
+import HomeNav from "../Navbar/HomeNav";
 
 
 export default function CheckoutFlightPage() {
@@ -27,7 +28,10 @@ export default function CheckoutFlightPage() {
   let totalPrice=1678+details.ticketPrice;
   
   return (
+    <main>
+      <HomeNav/>
       <div className="checkout-container"> 
+      
       <div className="flight-checkout-container">
     <section className="checkout-hotel-info checkout-Flight-Info" >
       <h2>FLIGHT INFO</h2>
@@ -113,6 +117,7 @@ export default function CheckoutFlightPage() {
     closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
 
     </div>
+    </main>
     
   )
 }
