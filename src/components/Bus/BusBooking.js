@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
-import HomeNav from "../Navbar/HomeNav";
 
 export default function BusBooking() {
   const { _id } = useParams();
@@ -93,7 +92,6 @@ export default function BusBooking() {
 
   return (
     <main>
-      <HomeNav/>
       {loading ? (
         <div>Loading...</div>
       ) : (

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Payment from "./Payment";
-import Navbar from "../Navbar/Navbar";
-import HomeNav from "../Navbar/HomeNav";
 
 
 export default function CheckoutPage() {
@@ -33,8 +31,6 @@ export default function CheckoutPage() {
   let total=1678+details.price;
   
   return (
-    <main>
-      <HomeNav/>
       <div className="checkout-container"> 
       <div className="flight-checkout-container">
         
@@ -126,7 +122,6 @@ export default function CheckoutPage() {
     {hotelDetails} total={total} closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
 
     </div>
-    </main>
     
   )
 }

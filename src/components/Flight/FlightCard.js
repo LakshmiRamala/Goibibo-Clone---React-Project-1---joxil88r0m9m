@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
 import axios from "axios";
-import HomeNav from "../Navbar/HomeNav";
 
 export default function FlightCard({ details,flightId }) {
     const { flightID, source, destination, arrivalTime, departureTime
@@ -51,8 +50,6 @@ export default function FlightCard({ details,flightId }) {
     }
   };
     return (
-      <main>
-        {window.innerWidth<=768 && <HomeNav/>}
         <div className="Flightcard">
             <div>
                 <h4 style={{color:"red"}}>{flightID}</h4>
@@ -80,6 +77,5 @@ export default function FlightCard({ details,flightId }) {
                 <button type="submit" id="flight-booking-button" onClick={handleBookNow}>Book</button>
            
         </div>
-        </main>
     )
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 
 
 export default function Hotels() {
@@ -19,7 +18,6 @@ export default function Hotels() {
 
   return (
     <div className="hotel">
-      <Navbar/>
       <h2 className="heading">Book Hotels & Homestays</h2>
       <form className="details" onSubmit={handlesubmit}>
         <div className="location">

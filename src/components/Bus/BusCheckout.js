@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import BusPayment from "./BusPayment";
-import HomeNav from "../Navbar/HomeNav";
 
 
 
@@ -32,11 +31,7 @@ export default function BusCheckout() {
   let totalPrice=tax+farePrie;
   
   return (
-    <main>
-      <HomeNav/>
-    
       <div className="checkout-container"> 
-      
       <div className="flight-checkout-container">
     <section className="checkout-hotel-info checkout-Flight-Info checkout-bus-info" >
       <h2>BUS INFO</h2>
@@ -120,6 +115,6 @@ export default function BusCheckout() {
     closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
 
     </div>
-    </main>
+    
   )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 
 export default function Flights() {
     const [source, setSource] = useState("");
@@ -25,10 +24,8 @@ export default function Flights() {
             alert("Please Provide all details");
           }
     };
-    return (        
-       
+    return (
         <div className="flights">
-             <Navbar/>
             <h2 className="heading">Domestic and International Flights</h2>
             <form className="details" onSubmit={handleSubmit}>
                 <div className="journeyinfo">

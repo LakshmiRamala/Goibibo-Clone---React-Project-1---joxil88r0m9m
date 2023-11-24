@@ -26,8 +26,9 @@ import BusCheckout from "./Bus/BusCheckout";
 function App() {
   return <div className="App">
     <AuthProvider>
+<Navbar/>
 <Routes>
-  <Route path="/" element={<Flights/>}/>
+
   <Route path="/flights" element={<Flights/>}/>
   <Route path="/flights/:search" element={<FlightSearch/>}/>
   <Route path="/flights/checkout" element={<CheckoutFlightPage/>}/>

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import MyProfilesave from "./MyProfilesave";
 import { green } from "@mui/material/colors";
-import Navbar from "./Navbar";
 
 export default function MyProfile() {
   const ref = useRef();
@@ -23,11 +22,7 @@ export default function MyProfile() {
   };
 
   return (
-    <main>
-       <Navbar/>
- 
     <div className="main-user">
-     
       <h2>My Profile</h2>
       <div className="user-profile-details">
         <div className="user-image">
@@ -114,6 +109,5 @@ export default function MyProfile() {
         )}
       </div>
     </div>
-    </main>
   );
 }

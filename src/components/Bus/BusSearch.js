@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import BusCard from "./BusCard";
-import HomeNav from "../Navbar/HomeNav";
 
 export default function BusSearch() {
   const location = useLocation();
@@ -81,7 +80,6 @@ export default function BusSearch() {
 
   return (
     <main>
-      <HomeNav/>
       {loading ? (
         <p>Loading...</p>
       ) : (

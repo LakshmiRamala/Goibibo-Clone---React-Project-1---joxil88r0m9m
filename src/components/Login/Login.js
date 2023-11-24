@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import Navbar from "../Navbar/Navbar";
 
 export default function Login() {
   const emailRef = useRef();
@@ -64,10 +63,8 @@ export default function Login() {
   // };
 
   return (
-    <div className="form-display">
-      <Navbar/>
+    // <GoogleOAuthProvider clientId="848852276859-6lh4ujdbqoveb68kdlrq2fs0bm5m49st.apps.googleusercontent.com">
       <form className="form-container" onSubmit={handleFormSubmit}>
-       
         <h1>Login</h1>
         <div className="inputFeild">
           <label htmlFor="email">Email: </label>
@@ -91,7 +88,6 @@ export default function Login() {
           onFailure={onGoogleLoginFailure}
         /> */}
       </form>
-      </div>
     // </GoogleOAuthProvider>
   );
 }

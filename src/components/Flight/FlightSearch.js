@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import FlightCard from "./FlightCard";
-import HomeNav from "../Navbar/HomeNav";
 
 export default function HotelSearch() {
   const location = useLocation();
@@ -80,12 +79,10 @@ export default function HotelSearch() {
 
   return (
     <main>
-      <HomeNav/>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <section>
-          
           <div className="flight-search-container">
             <form onSubmit={handleSubmit} className="flight-search-form">
               <input
