@@ -1,55 +1,95 @@
-import { Routes,Route } from "react-router-dom";
-import "../styles/App.css";
-import Flights from "./Flight/Flights";
-import Hotels from "./Hotels/Hotels";
-import Trains from "./Trains/Trains";
-import Bus from "./Bus/Bus";
-import Login from "./Login/Login";
-import MyTrips from "./MyTrips/MyTrips";
-import Navbar from "./Navbar/Navbar";
-import HotelSearch from "./Hotels/HotelSearch";
-import Signup from "./Signup/Signup";
-import AuthProvider from "./provider/AuthProvider";
-import AuthNavigator from "./navigator/AuthNavigator";
-import CheckoutPage from "./checkout/CheckoutPage";
-import FlightSearch from "./Flight/FlightSearch";
-import TrainSearch from "./Trains/TrainSearch";
-import BusSearch from "./Bus/BusSearch";
-import BusBooking from "./Bus/BusBooking";
-import MyProfile from "./Navbar/MyProfile";
-import CheckoutFlightPage from "./Flight/CheckoutFlightPage";
-import CheckoutTrainPage from "./Trains/CheckoutTrainPage";
-import BusCheckout from "./Bus/BusCheckout";
-
-
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import '../styles/App.css';
+import Flights from './Flight/Flights';
+import Hotels from './Hotels/Hotels';
+import Trains from './Trains/Trains';
+import Bus from './Bus/Bus';
+import Login from './Login/Login';
+import MyTrips from './MyTrips/MyTrips';
+import Navbar from './Navbar/Navbar';
+import HotelSearch from './Hotels/HotelSearch';
+import Signup from './Signup/Signup';
+import AuthProvider from './provider/AuthProvider';
+import AuthNavigator from './navigator/AuthNavigator';
+import CheckoutPage from './checkout/CheckoutPage';
+import FlightSearch from './Flight/FlightSearch';
+import TrainSearch from './Trains/TrainSearch';
+import BusSearch from './Bus/BusSearch';
+import BusBooking from './Bus/BusBooking';
+import MyProfile from './Navbar/MyProfile';
+import CheckoutFlightPage from './Flight/CheckoutFlightPage';
+import CheckoutTrainPage from './Trains/CheckoutTrainPage';
+import BusCheckout from './Bus/BusCheckout';
+import HomePage from './Navbar/HomePage';
 
 function App() {
-  return <div className="App">
-    <AuthProvider>
-<Navbar/>
-<Routes>
+  const isHomePage = window.innerWidth <= 768;
 
-  <Route path="/flights" element={<Flights/>}/>
-  <Route path="/flights/:search" element={<FlightSearch/>}/>
-  <Route path="/flights/checkout" element={<CheckoutFlightPage/>}/>
-  <Route path="/trains/checkout" element={<CheckoutTrainPage/>}/>
-  <Route path="/trains/:search" element={<TrainSearch/>}/>
-  <Route path="/bus/checkout" element={<BusCheckout/>}/>
-  <Route path="/hotels" element={<Hotels/>}/>
-  <Route path="/trains" element={<Trains/>}/>
-  <Route path="/bus" element={<Bus/>}/>
-  <Route path="/bus/:search" element={<BusSearch/>}/>
-  <Route path="/bus/book/:_id" element={<BusBooking/>}/>
-  <Route path="/login" element={<Login/>}/>
-  <Route path="/signup" element={<Signup/>}/>
-  <Route path="/myProfile" element={<MyProfile/>}/>
-  <Route path="/mysupport/trips" element={<AuthNavigator><MyTrips/></AuthNavigator>}/>
-  <Route path="/hotels/search/:location" element={<HotelSearch/>}/>
-  <Route path="/checkoutPage" element={<CheckoutPage/>}/>
-  <Route path="*" element={<h2>Page not found!!!!</h2>}/>
-</Routes>
-</AuthProvider>
-    </div>;
+  return (
+    <div className="App">
+      <AuthProvider>
+        <Routes>
+          {isHomePage && <><Route path="/" element={<HomePage />}/>
+            <Route path="/flights" element={<Flights />} />
+              <Route path="/flights/:search" element={<FlightSearch />} />
+              <Route path="/flights/checkout" element={<CheckoutFlightPage />} />
+              <Route path="/trains/checkout" element={<CheckoutTrainPage />} />
+              <Route path="/trains/:search" element={<TrainSearch />} />
+              <Route path="/bus/checkout" element={<BusCheckout />} />
+              <Route path="/hotels" element={<Hotels />} />
+              <Route path="/trains" element={<Trains />} />
+              <Route path="/bus" element={<Bus />} />
+              <Route path="/bus/:search" element={<BusSearch />} />
+              <Route path="/bus/book/:_id" element={<BusBooking />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/myProfile" element={<MyProfile />} />
+              <Route
+                path="/mysupport/trips"
+                element={
+                  <AuthNavigator>
+                    <MyTrips />
+                  </AuthNavigator>
+                }
+              />
+              <Route path="/hotels/search/:location" element={<HotelSearch />} />
+              <Route path="/checkoutPage" element={<CheckoutPage />} />
+              </>}
+        </Routes>
+            {!isHomePage && <><Navbar />
+            <Routes>
+              <Route path="/flights" element={<Flights />} />
+              <Route path="/flights/:search" element={<FlightSearch />} />
+              <Route path="/flights/checkout" element={<CheckoutFlightPage />} />
+              <Route path="/trains/checkout" element={<CheckoutTrainPage />} />
+              <Route path="/trains/:search" element={<TrainSearch />} />
+              <Route path="/bus/checkout" element={<BusCheckout />} />
+              <Route path="/hotels" element={<Hotels />} />
+              <Route path="/trains" element={<Trains />} />
+              <Route path="/bus" element={<Bus />} />
+              <Route path="/bus/:search" element={<BusSearch />} />
+              <Route path="/bus/book/:_id" element={<BusBooking />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/myProfile" element={<MyProfile />} />
+              <Route
+                path="/mysupport/trips"
+                element={
+                  <AuthNavigator>
+                    <MyTrips />
+                  </AuthNavigator>
+                }
+              />
+              <Route path="/hotels/search/:location" element={<HotelSearch />} />
+              <Route path="/checkoutPage" element={<CheckoutPage />} />
+              <Route path="*" element={<h2>Page not found!!!!</h2>} />
+            </Routes>
+            </>}
+         
+      </AuthProvider>
+    </div>
+  );
 }
-  
+
 export default App;

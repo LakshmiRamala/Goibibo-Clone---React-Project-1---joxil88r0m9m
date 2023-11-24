@@ -1261,10 +1261,48 @@ border-radius: 25px;
     width: 88%;
     font-size: 12px;
   }
+  .homeimages{
+    width: 120px;
+    border-radius: 12px;
+    height: 120px;
+    background-color: yellow;
+    padding: 30px 10px;
+  }
 
+  .home-imagecontainers{
+    background-color:#fc6203;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4%;
+    padding:10%;
+    border-radius: 0% 0% 40% 40%;
+     height: 100px;
+  }
+ 
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background-color: white;
+    background-image: url(../components/Assets/background-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-position:bottom;
+  }
+  
+  .homefooter {
+    margin-top: auto; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0,0.7); 
+    padding: 20px;
+  }
+
+  
   .train-container-images, .train-filter-price {
     margin: 2em 5%;
   }
+ 
 
   #train-reset-button, .hotel-reset-button, .busfilters-button, .flight-price-filter, .filight-filter-reset {
     margin: 0.625em 0;
@@ -1272,6 +1310,7 @@ border-radius: 25px;
   .main-user{
     width: 94%;
   }
+
   #mytrip{
     display: none;
   }
