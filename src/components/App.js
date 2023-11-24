@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route,NavLink } from 'react-router-dom';
 import '../styles/App.css';
 import Flights from './Flight/Flights';
 import Hotels from './Hotels/Hotels';
@@ -22,6 +22,8 @@ import CheckoutFlightPage from './Flight/CheckoutFlightPage';
 import CheckoutTrainPage from './Trains/CheckoutTrainPage';
 import BusCheckout from './Bus/BusCheckout';
 import HomePage from './Navbar/HomePage';
+import HomeNav from './Navbar/HomeNav';
+
 
 function App() {
   const isHomePage = window.innerWidth <= 768;
@@ -29,8 +31,9 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
+      {isHomePage && <><HomeNav/>
         <Routes>
-          {isHomePage && <><Route path="/" element={<HomePage />}/>
+          <Route path="/" element={<HomePage />}/>
             <Route path="/flights" element={<Flights />} />
               <Route path="/flights/:search" element={<FlightSearch />} />
               <Route path="/flights/checkout" element={<CheckoutFlightPage />} />
@@ -55,8 +58,9 @@ function App() {
               />
               <Route path="/hotels/search/:location" element={<HotelSearch />} />
               <Route path="/checkoutPage" element={<CheckoutPage />} />
-              </>}
-        </Routes>
+            
+        </Routes> </> }
+        
             {!isHomePage && <><Navbar />
             <Routes>
               <Route path="/flights" element={<Flights />} />

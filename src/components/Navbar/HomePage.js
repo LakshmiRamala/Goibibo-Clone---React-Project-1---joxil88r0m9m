@@ -3,23 +3,14 @@ import flighticon from "../Assets/flighticon.png";
 import hotel from "../Assets/hotel.webp";
 import train from "../Assets/train.png";
 import bus from "../Assets/bus.png";
-import logo from "../Assets/flight.png";
 import { NavLink } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
 import LuggageIcon from '@mui/icons-material/Luggage';
-import { Profile } from "./Profile";
+
 
 export default function HomePage() {
   return (
     <div className="home-container">
-      <NavLink to="/" id="goibibolog">
-        <img src={logo} id="logo" />
-        {window.innerWidth <= 768 && (
-          <div style={{ padding: "0px 20px" }}>
-            <Profile />
-          </div>
-        )}
-      </NavLink>
       <div className="home-imagecontainers">
         <NavLink to="/flights" className="imagecontainer">
           <img src={flighticon} alt="Flighticon" className="homeimages" />

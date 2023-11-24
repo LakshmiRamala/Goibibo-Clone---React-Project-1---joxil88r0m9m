@@ -1130,7 +1130,7 @@ border-radius: 25px;
     padding: 1%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width:768px) {
 
   #logo {
     width: 40%;
@@ -1151,9 +1151,6 @@ border-radius: 25px;
     background-color:#ebeff0;
     font-size: 12px;
   }
-
-
-
   .auth-modal {
     width: 100%;
     margin: 0;
@@ -1194,12 +1191,14 @@ border-radius: 25px;
   }
 
   .flights, .hotel {
-    height:10%;
+    height:20%;
     font-size: 12px;
   }
+  
 
   .details {
-    width: 90%;
+    width: 86%;
+    height: 100%;
     margin: 0% 3%;
   }
 
@@ -1233,16 +1232,9 @@ border-radius: 25px;
     font-size: 12px;
     justify-content: space-evenly;
   }
-  
-  
-
-
-
   .busbooking-details {
     flex-direction: column;
   }
-
- 
   .payment-content {
     position: relative;
     background-color: white;
@@ -1275,6 +1267,7 @@ border-radius: 25px;
     grid-template-columns: 1fr 1fr;
     gap: 4%;
     padding:10%;
+    padding-left: 20%;
     border-radius: 0% 0% 40% 40%;
      height: 100px;
   }
@@ -1282,7 +1275,7 @@ border-radius: 25px;
   .home-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 94vh; 
     background-color: white;
     background-image: url(../components/Assets/background-removebg-preview.png);
     background-repeat: no-repeat;
@@ -1326,16 +1319,38 @@ border-radius: 25px;
 
 
 }
-.journeyinfo{
+.flights  .journeyinfo{
+  display: flex;
+  flex-direction: column;
   >input{
     font-size: 12px;
-    width: 100%;
+    width: 50%;
+    height: 30px;
+    margin: 0px;
   }
+  >select{
+    margin: 10px;
+    font-size: 12px;
+    width: 50%;
+    height: 30px;
+  }
+  >#toggle {
+    width: 4em;
+    padding: 0px;
+    margin: 0px;
+    height: 2.4em;
+    border: none;
+}
+}
+.searchflight{
+  width: 100%;
+  font-size: 12px;
+  margin-left: 0%;
+
 }
 .personal-info{
   width: 80%;
   margin: 10% 10%;
-
 }
 
   .flight-checkout-container {
@@ -1345,7 +1360,38 @@ border-radius: 25px;
     width: 70%;
     padding: 5%;
   }
- 
+  .home-nav {
+    position: relative;
+    background-color: white;
+    padding-right: 5%;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+  }
+  
+  .menu-list {
+    position: absolute;
+    right: 0;
+    background-color: #fff; 
+    list-style: none;
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  .men-list li {
+    margin-bottom: 10px;
+  }
+  .menu-nav{
+   color: black;
+   padding: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+  }
+  
+  
 
   .trainbutton{
     margin-top: 0.4%;
