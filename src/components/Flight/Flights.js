@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import { useNavigate } from "react-router-dom";
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 
 export default function Flights() {
     const [source, setSource] = useState("");
@@ -30,7 +31,8 @@ export default function Flights() {
             <form className="details" onSubmit={handleSubmit}>
                 <div className="journeyinfo">
                     <input type="text" id="from" placeholder="Enter Source...(HYD)" onChange={(e) => setSource(e.target.value)} value={source} />
-                    <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>
+                    {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
+                    {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
                     <input type="text" id="to" placeholder="Enter Destination...(BOM)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
                         <option value="" disabled>Select day</option>

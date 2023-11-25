@@ -22,7 +22,12 @@ const navigate=useNavigate();
 const handleNetPayment = () => {
      if (bankname && account && holdername && ifsc) {
        alert("Booking Success!!");
-       navigate("/flights");
+       if(window.innerWidth>768){
+          navigate("/flights");
+          }
+          else{
+             navigate("/");
+          }
      } else {
        alert("Please provide all details");
      }
@@ -30,7 +35,12 @@ const handleNetPayment = () => {
 const handlecreaditpayment=()=>{
      if(name && cardnum && cvv && exp){
           alert("Booking Success!!");
-          navigate("/flights");
+          if(window.innerWidth>768){
+               navigate("/flights");
+               }
+               else{
+                  navigate("/");
+               }
      }
      else{
           alert("Please provide all details");
@@ -39,7 +49,12 @@ const handlecreaditpayment=()=>{
 const handleupipayment=()=>{
      if(upiid && upipin){
           alert("Booking Success!!");
-          navigate("/flights")
+          if(window.innerWidth>768){
+               navigate("/flights");
+               }
+               else{
+                  navigate("/");
+               }
      }
      else{
           alert("Please provide all details");

@@ -27,8 +27,10 @@ export default function CheckoutFlightPage() {
   let totalPrice=1678+details.ticketPrice;
   
   return (
+    
       <div className="checkout-container"> 
-      <div className="flight-checkout-container">
+      <h3 className="heading" style={{color:"black"}}>Review your booking</h3>
+      <div className="flight-checkout-container flight-booking">
     <section className="checkout-hotel-info checkout-Flight-Info" >
       <h2>FLIGHT INFO</h2>
       <div>

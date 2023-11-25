@@ -4,7 +4,8 @@ import axios from "axios";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import FlightCard from "./FlightCard";
 
-export default function HotelSearch() {
+export default function Flighysearch() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const state = location.state;
   const [loading, setLoading] = useState(false);
@@ -15,19 +16,26 @@ export default function HotelSearch() {
   const [selectedFilters, setSelectedFilters] = useState({
     stops: null,
     sortPrice: false,
-    sortDuration:false,
-    depature:null
+    sortDuration: false,
+    depature: null
   });
 
   const handleResetFilters = () => {
     setSelectedFilters({
       stops: null,
       sortPrice: false,
-      sortDuration:false,
-      depature:null
+      sortDuration: false,
+      depature: null
     });
   };
-    
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   useEffect(() => {
     getFlightsData();
   }, []);
@@ -60,8 +68,8 @@ export default function HotelSearch() {
       );
       setFlightList(response.data.data.flights);
       console.log(response.data.data.flights);
-     
-  
+
+
     } catch (err) {
       console.error(err);
     } finally {
@@ -127,9 +135,140 @@ export default function HotelSearch() {
               <button type="submit" id="flight-update">
                 UPDATE SEARCH
               </button>
+              {window.innerWidth <= 768 && (<main className="resposive-filters">
+                <div className="menu-filter" onClick={toggleMenu}>
+                  Filter
+                </div>
+                {isMenuOpen && (
+                  <div className="filter">
+                    <div className="filtersbox">
+                      <h4>Filters</h4>
+                      <form>
+                        <p>Onwards Stops</p>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="stops"
+                            id="zero"
+                            value={0}
+                            checked={selectedFilters.stops === 0}
+                            onChange={() => handleFilterChange("stops", 0)}
+                          />
+                          <label htmlFor="zero"> Direct</label>
+                        </span>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="stops"
+                            id="one"
+                            value={1}
+                            checked={selectedFilters.stops === 1}
+                            onChange={() => handleFilterChange("stops", 1)}
+                          />
+                          <label htmlFor="one"> 1 Stop</label>
+                        </span>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="stops"
+                            id="two"
+                            value={2}
+                            checked={selectedFilters.stops === 2}
+                            onChange={() => handleFilterChange("stops", 2)}
+                          />
+                          <label htmlFor="two"> 2 Stops</label>
+                        </span>
+                      </form>
+                      <form>
+                        <p>Depature</p>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="time"
+                            id="before 6"
+                            value={0}
+                            checked={selectedFilters.depature === 0}
+                            onChange={() => handleFilterChange("depature", 0)}
+                          />
+                          <label htmlFor="before 6"> Before 6AM</label>
+                        </span>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="time"
+                            id="before 12"
+                            value={6}
+                            checked={selectedFilters.depature === 6}
+                            onChange={() => handleFilterChange("depature", 6)}
+                          />
+                          <label htmlFor="before 12"> 6AM - 12PM</label>
+                        </span>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="time"
+                            id="before 18"
+                            value={12}
+                            checked={selectedFilters.depature === 12}
+                            onChange={() => handleFilterChange("depature", 12)}
+                          />
+                          <label htmlFor="before 18"> 12PM - 6PM</label>
+                        </span>
+                        <span>
+                          <input
+                            type="checkbox"
+                            name="time"
+                            id="before 24"
+                            value={18}
+                            checked={selectedFilters.depature === 18}
+                            onChange={() => handleFilterChange("depature", 18)}
+                          />
+                          <label htmlFor="before 24"> After 6PM</label>
+                        </span>
+                      </form>
+                      <form>
+                        <p>Sort based on Price(Cheapest)</p>
+                        <input
+                          type="button"
+                          id="price"
+                          name="price"
+                          onClick={() =>
+                            handleFilterChange("sortPrice", !selectedFilters.sortPrice)
+                          }
+                          value="Sort by Price"
+                          className="flight-price-filter"
+
+                        />
+                      </form>
+
+                      <form>
+                        <p>Sort based on Duration(Quickest)</p>
+                        <input
+                          type="button"
+                          id="duration"
+                          name="duration"
+                          onClick={() =>
+                            handleFilterChange(
+                              "sortDuration",
+                              !selectedFilters.sortDuration
+                            )
+                          }
+                          value="Sort by duration"
+                          className="flight-price-filter"
+                        />
+                      </form>
+
+                      <button onClick={handleResetFilters} className="filight-filter-reset">
+                        Reset filters
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+              </main>)}
             </form>
           </div>
-          <div className="filter">
+          {window.innerWidth > 768 && <><div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>
@@ -226,11 +365,11 @@ export default function HotelSearch() {
                   }
                   value="Sort by Price"
                   className="flight-price-filter"
-                 
+
                 />
               </form>
 
-              
+
               <form>
                 <p>Sort based on Duration(Quickest)</p>
                 <input
@@ -244,26 +383,27 @@ export default function HotelSearch() {
                     )
                   }
                   value="Sort by duration"
-                 className="flight-price-filter"
+                  className="flight-price-filter"
                 />
               </form>
-              
+
               <button onClick={handleResetFilters} className="filight-filter-reset">
                 Reset filters
               </button>
             </div>
           </div>
+          </>}
           <div className="hotel-list-container">
-          {flightlist
-        .filter((flight) => {
-          const flightDeparture = convertTo24HourFormat(flight.departureTime);
-          return (
-            (selectedFilters.stops === null || flight.stops === selectedFilters.stops) &&
-            (selectedFilters.depature === null ||
-              (flightDeparture >= selectedFilters.depature &&
-                flightDeparture < selectedFilters.depature + 6))
-          );
-        })
+            {flightlist
+              .filter((flight) => {
+                const flightDeparture = convertTo24HourFormat(flight.departureTime);
+                return (
+                  (selectedFilters.stops === null || flight.stops === selectedFilters.stops) &&
+                  (selectedFilters.depature === null ||
+                    (flightDeparture >= selectedFilters.depature &&
+                      flightDeparture < selectedFilters.depature + 6))
+                );
+              })
               .sort((a, b) => {
                 if (selectedFilters.sortPrice) {
                   return a.ticketPrice - b.ticketPrice;
@@ -273,12 +413,12 @@ export default function HotelSearch() {
               .sort((a, b) => {
                 if (selectedFilters.sortDuration) {
                   return a.duration - b.duration;
-                  
+
                 }
                 return 0;
               })
               .map((flight) => (
-                <FlightCard details={flight} key={flight._id} flightId={flight._id}/>
+                <FlightCard details={flight} key={flight._id} flightId={flight._id} />
               ))}
           </div>
         </section>
