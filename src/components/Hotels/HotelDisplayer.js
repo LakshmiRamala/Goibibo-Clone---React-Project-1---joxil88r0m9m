@@ -45,7 +45,7 @@ const HotelDisplayer = ({ hotelId, closeModal }) => {
 
   return (
     <div className="modal-container">
-      <main className="hotel-display-container">
+      <main className="hotel-display-container  modal-responsive">
         {loading && <p>Loading...</p>}
         {!loading && (
           <>

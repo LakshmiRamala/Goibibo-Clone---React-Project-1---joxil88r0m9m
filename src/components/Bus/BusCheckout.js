@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import BusPayment from "./BusPayment";
 
-
-
 export default function BusCheckout() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -32,7 +30,7 @@ export default function BusCheckout() {
   
   return (
       <div className="checkout-container"> 
-      <div className="flight-checkout-container">
+      <div className="flight-checkout-container bus-checkout">
     <section className="checkout-hotel-info checkout-Flight-Info checkout-bus-info" >
       <h2>BUS INFO</h2>
       <div>
@@ -54,7 +52,7 @@ export default function BusCheckout() {
                 
       </div>
     </section>
-    <section className="flight-price-details">
+    <section className="flight-price-details checkoutPrice">
       <h1>FARE SUMMARY</h1>
       <span className="grand-total">
         <p>Base fare</p>
@@ -71,7 +69,7 @@ export default function BusCheckout() {
 
     </section>
     </div>
-    <section className="checkout-hotel-info"> 
+    <section className="checkout-hotel-info hotel-check"> 
     <h2>GUEST DETAILS</h2>
     <form onSubmit={handlePayment}>
     <main className="checkout-guest">

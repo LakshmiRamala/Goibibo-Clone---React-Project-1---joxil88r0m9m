@@ -1,7 +1,7 @@
 import React, { useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
-import { SwapVerticalCircleOutlined } from "@mui/icons-material";
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 export default function Trains(){
   const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
@@ -30,7 +30,7 @@ export default function Trains(){
                 <div className="journeyinfo">
                     <input type="text" id="from" placeholder="Enter Source.(secunderabad))" onChange={(e) => setSource(e.target.value)} value={source} />
                     {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
-                    {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVerticalCircleOutlined color="primary"/></button>}
+                    {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
                     <input type="text" id="to" placeholder="Enter Destination..(varanasi)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
                         <option value="" disabled>Select day</option>

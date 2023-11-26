@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import { useNavigate } from "react-router-dom";
-
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 export default function Bus() {
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
@@ -16,7 +16,7 @@ export default function Bus() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (source && destination && day) {
+        if ( day) {
             navigate(`/bus/${source}&${destination}`, { state: { source, destination, day } });
         }
         else{
@@ -29,7 +29,8 @@ export default function Bus() {
             <form className="details" onSubmit={handleSubmit}>
                 <div className="journeyinfo">
                     <input type="text" id="from" placeholder="Enter Source....(Hyderabad)" onChange={(e) => setSource(e.target.value)} value={source} />
-                    <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>
+                    {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
+                    {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
                     <input type="text" id="to" placeholder="Enter Destination....(Gujarat)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
                         <option value="" disabled>Select day</option>

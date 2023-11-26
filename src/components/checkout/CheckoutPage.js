@@ -32,8 +32,7 @@ export default function CheckoutPage() {
   
   return (
       <div className="checkout-container"> 
-      <div className="flight-checkout-container">
-        
+      <div className="flight-checkout-container hotel-details-container">    
     <section className="checkout-hotel-info hotelFinal" >
       <h2>HOTEL INFO</h2>
       <div id="checkout-hotel">
@@ -49,10 +48,10 @@ export default function CheckoutPage() {
         <h2 style={{color:"#2176d1"}}>Room Deatils</h2>
         <div className="chechout-room">
         <main className="checkout-room-details">
-        <p>Room Number :{details.roomNumber}</p>
-        <p>Room Type: {details.roomType}</p>
-        <p>Room Size: {details.roomSize}</p>
-        <p>Price: {details.price}</p>
+        <p>{window.innerWidth>768 && "RoomNumber : "}{window.innerWidth<=768 && "RoomNo:"}{details.roomNumber}</p>
+        <p>{window.innerWidth>768 && "Room Type: "}{details.roomType}</p>
+        <p>{window.innerWidth>768 && "Room Size: "}{details.roomSize}</p>
+        <p>{window.innerWidth>768 && "Price: "}{window.innerWidth<=768 && "₹"}{details.price}</p>
         </main>
         <main style={{color:"green"}}>
           <p>{details.bedDetail}</p>
@@ -61,7 +60,7 @@ export default function CheckoutPage() {
         </div>
         </section>
     </section>
-     <section className="flight-price-details">
+     <section className="flight-price-details checkoutPrice">
       <h1>FARE SUMMARY</h1>
       <span className="grand-total">
         <p>Base fare</p>
@@ -78,7 +77,7 @@ export default function CheckoutPage() {
 
     </section>
     </div>
-    <section className="checkout-hotel-info"> 
+    <section className="checkout-hotel-info hotel-check"> 
     <h2>GUEST DETAILS</h2>
     <form onSubmit={handlePayment}>
     <main className="checkout-guest">

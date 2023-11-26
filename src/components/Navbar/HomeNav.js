@@ -21,18 +21,21 @@ const HomeNav = () => {
 
   return (
     <nav className="home-nav"> 
-      <NavLink to="/" id="goibibolog">
+     {window.innerWidth <= 768 && (<> <div  id="goibibolog">
+
+      <NavLink to="/">
         <img src={logo} id="logo" />
-        {window.innerWidth <= 768 && (
-          <>
+        </NavLink>
+       
           <div style={{ padding: "0px 20px" }}>
             <Profile />
           </div>
           <div className="menu-icon" onClick={toggleMenu}>
         <MenuIcon color="primary"/>
       </div>
-       </> )}
-      </NavLink>
+     
+       </div> </>)}
+     
       {isMenuOpen && (
         <ul className="menu-list">
           <li>

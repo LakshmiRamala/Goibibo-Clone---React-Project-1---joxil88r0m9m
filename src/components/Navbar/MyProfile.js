@@ -69,22 +69,24 @@ export default function MyProfile() {
               />
             </div>
             <div className="personal-data">
-              <section onChange={(e) => setGender(e.target.value)}>
-                <label htmlFor="gender">Gender</label>
+              <section onChange={(e) => setGender(e.target.value)}  className="radio-button">
+                <h4>Gender</h4>
                 <input
                   type="radio"
                   id="male"
                   name="gender"
-                  value="male"
-                  checked={gender === "male"}
+                  value="Male"
+                  checked={gender === "Male"}
+                 
                 />
                 <label htmlFor="male">Male</label>
                 <input
                   type="radio"
                   id="female"
                   name="gender"
-                  value="female"
-                  checked={gender === "female"}
+                  value="Female"
+                  checked={gender === "Female"}
+    
                 />
                 <label htmlFor="female">Female</label>
               </section>

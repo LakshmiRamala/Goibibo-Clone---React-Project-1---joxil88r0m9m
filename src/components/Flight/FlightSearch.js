@@ -32,9 +32,7 @@ export default function Flighysearch() {
     setMenuOpen(!isMenuOpen);
   };
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+
 
   useEffect(() => {
     getFlightsData();

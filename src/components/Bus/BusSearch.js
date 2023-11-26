@@ -5,6 +5,7 @@ import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import BusCard from "./BusCard";
 
 export default function BusSearch() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const state = location.state;
   const [loading, setLoading] = useState(false);
@@ -31,6 +32,9 @@ export default function BusSearch() {
   useEffect(() => {
     getBusData();
   }, []);
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   const handleToggle = (e) => {
     e.preventDefault();
@@ -128,9 +132,12 @@ export default function BusSearch() {
               <button type="submit" id="flight-update">
                 UPDATE SEARCH
               </button>
-            </form>
-          </div>
-          <div className="filter">
+              {window.innerWidth <= 768 && (<main className="resposive-filters">
+                <div className="menu-filter" onClick={toggleMenu}>
+                  Filter
+                </div>
+                {isMenuOpen && (
+              <div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>
@@ -270,6 +277,151 @@ export default function BusSearch() {
               </button>
             </div>
           </div>
+          )}
+          </main>)}
+            </form>
+          </div>
+          {window.innerWidth > 768 && <> <div className="filter">
+            <div className="filtersbox">
+              <h4>Filters</h4>
+              <form>
+                <p>Bus Type</p>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="busType"
+                    id="ac"
+                    value={"AC"}
+                    checked={selectedFilters.busType === "AC"}
+                    onChange={() => handleFilterChange("busType", "AC")}
+                  />
+                  <label htmlFor="ac"> AC</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="busType"
+                    id="nonac"
+                    value={"Non-AC"}
+                    checked={selectedFilters.busType === "Non-AC"}
+                    onChange={() => handleFilterChange("busType", "Non-AC")}
+                  />
+                  <label htmlFor="nonac"> NON AC </label>
+                </span>
+              </form>
+              <form>
+                <p>Depature</p>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="time"
+                    id="before 6"
+                    value={0}
+                    checked={selectedFilters.depature === 0}
+                    onChange={() => handleFilterChange("depature", 0)}
+                  />
+                  <label htmlFor="before 6"> Before 6AM</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="time"
+                    id="before 12"
+                    value={6}
+                    checked={selectedFilters.depature === 6}
+                    onChange={() => handleFilterChange("depature", 6)}
+                  />
+                  <label htmlFor="before 12"> 6AM - 12PM</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="time"
+                    id="before 18"
+                    value={12}
+                    checked={selectedFilters.depature === 12}
+                    onChange={() => handleFilterChange("depature", 12)}
+                  />
+                  <label htmlFor="before 18"> 12PM - 6PM</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="time"
+                    id="before 24"
+                    value={18}
+                    checked={selectedFilters.depature === 18}
+                    onChange={() => handleFilterChange("depature", 18)}
+                  />
+                  <label htmlFor="before 24"> After 6PM</label>
+                </span>
+              </form>
+              <form>
+                <p>Arrival</p>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="arraival-time"
+                    id="before 6"
+                    value={0}
+                    checked={selectedFilters.arrival === 0}
+                    onChange={() => handleFilterChange("arrival", 0)}
+                  />
+                  <label htmlFor="before 6"> Before 6AM</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="arraival-time"
+                    id="before 12"
+                    value={6}
+                    checked={selectedFilters.arrival=== 6}
+                    onChange={() => handleFilterChange("arrival", 6)}
+                  />
+                  <label htmlFor="before 12"> 6AM - 12PM</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="arraival-time"
+                    id="before 18"
+                    value={12}
+                    checked={selectedFilters. arrival=== 12}
+                    onChange={() => handleFilterChange("arrival", 12)}
+                  />
+                  <label htmlFor="before 18"> 12PM - 6PM</label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    name="arraival-time"
+                    id="before 24"
+                    value={18}
+                    checked={selectedFilters.arrival === 18}
+                    onChange={() => handleFilterChange("arrival", 18)}
+                  />
+                  <label htmlFor="before 24"> After 6PM</label>
+                </span>
+              </form>
+              <form>
+                <p>Sort based on Price(Cheapest)</p>
+                <input
+                  type="button"
+                  id="price"
+                  name="price"
+                  onClick={() =>
+                    handleFilterChange("sortPrice", !selectedFilters.sortPrice)
+                  }
+                  value="Sort by Price"
+                  className="bussearch-sort"
+                />
+              </form>
+              <button onClick={handleResetFilters} className="busfilters-button" >
+                Reset filters
+              </button>
+            </div>
+          </div>
+          </>}
           <div className="hotel-list-container">
           {Buslist
         .filter((bus) => {

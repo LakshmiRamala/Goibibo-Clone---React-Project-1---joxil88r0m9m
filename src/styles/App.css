@@ -1132,8 +1132,8 @@ border-radius: 25px;
 @media (max-width:768px) {
 
   #logo {
-    width: 40%;
-    height: 100%;
+    width: 34%;
+    height: 96%;
     
   }
  #goibibolog{
@@ -1211,29 +1211,22 @@ border-radius: 25px;
     margin: 20% 15%;
   }
 
-  .hotelcard, .flightcard {
-    margin: 4% 0%;
-    width: 100%;
-  }
   .hotelcard{
     display: flex;
     flex-direction: column;
-    margin-left: 30%;
-    width: 60%;
+    margin: 4% 6%;
+    width: 86%;
     >span img{
       width: 260px;
       height: 120px;
     }
   }
   .traincard{
-    margin-left: 23%;
-    width: 73%;
+    width: 86%;
+    margin: 4% 6%;
     padding: 10px;
     font-size: 12px;
     justify-content: space-evenly;
-  }
-  .busbooking-details {
-    flex-direction: column;
   }
   .payment-content {
     position: relative;
@@ -1283,6 +1276,14 @@ border-radius: 25px;
     background-repeat: no-repeat;
     background-position:bottom;
   }
+  .hotelinfo{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+    >input{
+      width:50%;
+    }
+  }
   
   .homefooter {
     margin-top: auto; 
@@ -1307,7 +1308,7 @@ border-radius: 25px;
     margin: 0.625em 0;
   }
   .main-user{
-    width: 94%;
+    width: 90%;
   }
 
   #mytrip{
@@ -1321,14 +1322,12 @@ border-radius: 25px;
   
 
 .user-profile-details {
-  width:80%;
+  width:74%;
   margin: 0px 10%;
 
 
 }
-.modal-container{
-    width: 90%;
-  }
+
 .flights  .journeyinfo{
   display: flex;
   flex-direction: column;
@@ -1371,7 +1370,10 @@ border-radius: 25px;
   width: 80%;
   margin: 10% 10%;
 }
-
+.bus-booking{
+  background-color: lightblue;
+  height: 100vh;
+}
 
   .flight-price-details{
     width: 74%;
@@ -1388,6 +1390,7 @@ border-radius: 25px;
   }
 
   .menu-icon {
+    width: 10%;
     cursor: pointer;
   }
   #checkoutEmail{
@@ -1395,6 +1398,7 @@ border-radius: 25px;
       width: 80%;
     }
   }
+
   
   .menu-list {
     position: absolute;
@@ -1449,7 +1453,11 @@ border-radius: 25px;
     border-radius: 0%;
 
   }
-  
+  #checkout-hotel{
+    display: flex;
+    flex-direction: column;
+  }
+
   .flight-booking{
     display: flex;
     flex-direction: column;
@@ -1469,23 +1477,95 @@ border-radius: 25px;
     height:30vh;
     border-radius: 0%;
   }
+ 
+  .personal-data{
+    >section{
+      border: none;
+      display: flex;
+      width: 80%;
+      font-size: 1.25em;
+    }
+    
+  }
+
   .checkout-bus-info{
     height: 60%;
-    width: 100%;
+    width: 72%;
+    margin-left: 7%;
+    margin-top: 4%;
+
   
+  }
+  #hotellocation{
+    >input{
+      width: 70%;
+    }
+  }
+  .seat-details{
+    flex-direction: column;
+    >button{
+      width: 20%;
+      padding: 10px;
+    }
+    >div{
+      gap: 5%;
+      margin: 2%;
+    }
+  }
+  .hotelFinal{
+    width: 72%;
+    margin-right: 15%;
   }
   .modal-container{
     width: 90%;
     font-size: 12px;
   }
- 
+
+
+
+  .modal-responsive{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin-left: 5%;
+  }
+  .hotel-details-container{
+    display: flex;
+    flex-direction: column;
+  }
   .grand-total, .busbooking-button, .payment-button button {
     width: 100%;
+  }
+  .checkoutPrice{
+    width: 72%;
+    margin-left: 7%;
   }
   .payment-button button{
     padding: 10px;
     font-size: 20px;
   }
+
+  .paymentsucesss{
+    >button{
+      width: 30%;
+      margin: 10px;
+    }
+  }
+
+  .hotel-check{
+    width: 72%;
+    margin-left: 7%;
+    height: 50%;
+  }
+  .bus-checkout{
+    display: flex;
+    flex-direction: column;
+  }
+  .hotelFinal{
+    width: 72%;
+    margin-left: 7%;
+  }
+  
   .trainbookingdetails{
     display: flex;
     flex-direction: column;

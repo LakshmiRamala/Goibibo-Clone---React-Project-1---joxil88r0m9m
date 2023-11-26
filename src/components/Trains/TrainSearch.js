@@ -5,6 +5,7 @@ import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import TrainCard from "./TrainCard";
 
 export default function TrainSearch() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const state = location.state;
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,9 @@ export default function TrainSearch() {
       sortDuration: false,
       depature: null
     });
+  };
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
@@ -75,11 +79,11 @@ export default function TrainSearch() {
   const convertTo24HourForm = (time) => {
     const hour = time.split(" ")[0];
     let newhour;
-    if(hour.charAt(1)==="h"){
-     newhour = hour.charAt(0);
+    if (hour.charAt(1) === "h") {
+      newhour = hour.charAt(0);
     }
-    else{
-      newhour=hour.charAt(0)+hour.charAt(1);
+    else {
+      newhour = hour.charAt(0) + hour.charAt(1);
     }
     console.log(newhour);
 
@@ -102,7 +106,7 @@ export default function TrainSearch() {
               <input
                 type="text"
                 id="from"
-                placeholder="Enter Source...(secunderabad)"
+                placeholder="Enter Source"
                 onChange={(e) => setSource(e.target.value)}
                 value={source}
               />
@@ -116,7 +120,7 @@ export default function TrainSearch() {
               <input
                 type="text"
                 id="to"
-                placeholder="Enter Destination..(varanasi)"
+                placeholder="Enter Destination"
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />
@@ -141,9 +145,150 @@ export default function TrainSearch() {
               <button type="submit" id="flight-update" style={{ backgroundColor: "red" }}>
                 UPDATE SEARCH
               </button>
+
+              {window.innerWidth <= 768 && (<main className="resposive-filters">
+                <div className="menu-filter" style={{backgroundColor:"#2176d1"}}onClick={toggleMenu}>
+                  Filter
+                </div>
+                {isMenuOpen && (<div className="filter">
+                  <div className="filtersbox">
+                    <h4>Filters</h4>
+                    <form>
+                      <p>Depature</p>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 6"
+                          value={0}
+                          checked={selectedFilters.depature === 0}
+                          onChange={() => handleFilterChange("depature", 0)}
+                        />
+                        <label htmlFor="before 6"> Before 6AM</label>
+                      </span>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 12"
+                          value={6}
+                          checked={selectedFilters.depature === 6}
+                          onChange={() => handleFilterChange("depature", 6)}
+                        />
+                        <label htmlFor="before 12"> 6AM - 12PM</label>
+                      </span>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 18"
+                          value={12}
+                          checked={selectedFilters.depature === 12}
+                          onChange={() => handleFilterChange("depature", 12)}
+                        />
+                        <label htmlFor="before 18"> 12PM - 6PM</label>
+                      </span>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 24"
+                          value={18}
+                          checked={selectedFilters.depature === 18}
+                          onChange={() => handleFilterChange("depature", 18)}
+                        />
+                        <label htmlFor="before 24"> After 6PM</label>
+                      </span>
+                    </form>
+                    <form>
+                      <p>Arraival</p>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 6"
+                          value={0}
+                          checked={selectedFilters.arraival === 0}
+                          onChange={() => handleFilterChange("arraival", 0)}
+                        />
+                        <label htmlFor="before 6"> Before 6AM</label>
+                      </span>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 12"
+                          value={6}
+                          checked={selectedFilters.arraival === 6}
+                          onChange={() => handleFilterChange("arraival", 6)}
+                        />
+                        <label htmlFor="before 12"> 6AM - 12PM</label>
+                      </span>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 18"
+                          value={12}
+                          checked={selectedFilters.arraival === 12}
+                          onChange={() => handleFilterChange("arraival", 12)}
+                        />
+                        <label htmlFor="before 18"> 12PM - 6PM</label>
+                      </span>
+                      <span>
+                        <input
+                          type="checkbox"
+                          name="time"
+                          id="before 24"
+                          value={18}
+                          checked={selectedFilters.arraival === 18}
+                          onChange={() => handleFilterChange("arraival", 18)}
+                        />
+                        <label htmlFor="before 24"> After 6PM</label>
+                      </span>
+                    </form>
+                    <form>
+                      <p>Sort based on Price(Cheapest)</p>
+                      <input
+                        type="button"
+                        id="price"
+                        name="price"
+                        onClick={() =>
+                          handleFilterChange("sortPrice", !selectedFilters.sortPrice)
+                        }
+                        value="Sort by Price"
+                        className="flight-price-filter"
+                      />
+                    </form>
+
+
+                    <form>
+                      <p>Sort based on Duration(Quickest)</p>
+                      <input
+                        type="button"
+                        id="duration"
+                        name="duration"
+                        onClick={() =>
+                          handleFilterChange(
+                            "sortDuration",
+                            !selectedFilters.sortDuration
+                          )
+                        }
+                        value="Sort by duration"
+                        className="flight-price-filter"
+
+                      />
+                    </form>
+
+                    <button onClick={handleResetFilters} id="train-reset-button">
+                      Reset filters
+                    </button>
+                  </div>
+                </div>)}
+              </main>)}
             </form>
           </div>
-          <div className="filter">
+          {window.innerWidth > 768 && (<> <div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>
@@ -251,7 +396,7 @@ export default function TrainSearch() {
                   }
                   value="Sort by Price"
                   className="train-filter-price"
-                 
+
                 />
               </form>
 
@@ -270,7 +415,7 @@ export default function TrainSearch() {
                   }
                   value="Sort by duration"
                   className="train-filter-price"
-  
+
                 />
               </form>
 
@@ -278,7 +423,7 @@ export default function TrainSearch() {
                 Reset filters
               </button>
             </div>
-          </div>
+          </div></>)}
           <div className="hotel-list-container">
             {Traintlist
               .filter((train) => {
@@ -298,18 +443,18 @@ export default function TrainSearch() {
               })
               .sort((a, b) => {
                 if (selectedFilters.sortDuration) {
-                  const trainDurationA =Number( convertTo24HourForm(a.travelDuration));
+                  const trainDurationA = Number(convertTo24HourForm(a.travelDuration));
                   const trainDurationB = Number(convertTo24HourForm(b.travelDuration));
                   return trainDurationA - trainDurationB;
                 }
-                else if(selectedFilters.sortPrice){
+                else if (selectedFilters.sortPrice) {
                   return a.fare - b.fare;
                 }
                 return 0;
               })
 
               .map((train) => (
-                <TrainCard details={train} key={train._id} trainId={train._id}/>
+                <TrainCard details={train} key={train._id} trainId={train._id} />
               ))}
           </div>
         </section>

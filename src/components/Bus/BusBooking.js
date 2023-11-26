@@ -95,7 +95,7 @@ export default function BusBooking() {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div className="bus-booking">
           <h1 className="busbooking-heading">{bus.name}</h1>
           <main>
             <section className="busbooking-details">
@@ -104,7 +104,7 @@ export default function BusBooking() {
                 <p>{bus.departureTime}</p>
                 <p>{bus.source}</p>
               </div>
-              <p>{"---------->"}</p>
+            <p>{"---->"}</p>
               <div>
                 <h2 style={{ color: "#fc6203" }}>Dropping Point</h2>
                 <p>{bus.arrivalTime}</p>
@@ -135,9 +135,9 @@ export default function BusBooking() {
                 <div style={{ display: "flex" }}>
                   <span>Not Available</span>
                   <img
-                    src="https://banner2.cleanpng.com/20180215/tuw/kisspng-square-area-angle-pattern-transparent-shapes-cliparts-5a85f2015f1543.6114232115187276813895.jpg"
-                    width="40px"
-                    height="40px"
+                    src="https://webkit.org/blog-files/color-gamut/Webkit-logo-P3.png"
+                    width="30px"
+                    height="30px"
                     alt="red box"
                   />
                 </div>
@@ -145,8 +145,8 @@ export default function BusBooking() {
                   <span>Available</span>
                   <img
                     src="https://www.clker.com/cliparts/b/e/c/3/131406375432193858green%20square.png"
-                    width="40px"
-                    height="40px"
+                    width="35px"
+                    height="35px"
                     alt="green box"
                   />
                 </div>
@@ -154,8 +154,8 @@ export default function BusBooking() {
                   <span>Selected by you</span>
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Grey_Square.svg/2048px-Grey_Square.svg.png"
-                    width="40px"
-                    height="40px"
+                    width="35px"
+                    height="35px"
                     alt="grey box"
                   />
                 </div>
