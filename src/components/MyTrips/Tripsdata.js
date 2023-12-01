@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Tripsdata({ details }) {
-  console.log("details", details);
 
   const formattedDate = new Date(details.created_at).toLocaleDateString();
   const formattedTime= new Date(details.created_at).toLocaleTimeString();

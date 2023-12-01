@@ -14,7 +14,6 @@ export default function CheckoutPage() {
   const details =JSON.parse( sessionStorage.getItem("details"));
   const hotelDetails=JSON.parse(sessionStorage.getItem("hotelDetails"));
   const [modalOpen, setModalOpen] = useState(false);
-  console.log(details,hotelDetails);
 
  
 

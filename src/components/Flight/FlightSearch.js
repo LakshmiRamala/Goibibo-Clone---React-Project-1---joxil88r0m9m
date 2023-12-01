@@ -65,7 +65,6 @@ export default function Flighysearch() {
         config
       );
       setFlightList(response.data.data.flights);
-      console.log(response.data.data.flights);
 
 
     } catch (err) {

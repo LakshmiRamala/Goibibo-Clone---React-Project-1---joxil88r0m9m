@@ -63,7 +63,6 @@ export default function TrainSearch() {
         config
       );
       setTrainList(response.data.data.trains);
-      console.log(response.data.data.trains);
 
 
     } catch (err) {
@@ -85,7 +84,7 @@ export default function TrainSearch() {
     else {
       newhour = hour.charAt(0) + hour.charAt(1);
     }
-    console.log(newhour);
+ 
 
     return newhour;
   };

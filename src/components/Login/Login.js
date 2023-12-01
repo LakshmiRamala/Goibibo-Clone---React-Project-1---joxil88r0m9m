@@ -25,7 +25,6 @@ export default function Login() {
         { ...user, appType: "bookingportals" },
         config
       );
-      console.log("res", res);
       const token = res.data.token;
       if (token) {
         sessionStorage.setItem("userToken", token);
