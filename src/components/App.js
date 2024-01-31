@@ -12,7 +12,7 @@ import HotelSearch from './Hotels/HotelSearch';
 import Signup from './Signup/Signup';
 import AuthProvider from './provider/AuthProvider';
 import AuthNavigator from './navigator/AuthNavigator';
-import CheckoutPage from './checkout/CheckoutPage';
+import CheckoutPage from './Hotels/CheckoutPage';
 import FlightSearch from './Flight/FlightSearch';
 import TrainSearch from './Trains/TrainSearch';
 import BusSearch from './Bus/BusSearch';
@@ -63,6 +63,7 @@ function App() {
         
             {!isHomePage && <><Navbar />
             <Routes>
+              <Route path="/" element={<Flights/>}/>
               <Route path="/flights" element={<Flights />} />
               <Route path="/flights/:search" element={<FlightSearch />} />
               <Route path="/flights/checkout" element={<CheckoutFlightPage />} />

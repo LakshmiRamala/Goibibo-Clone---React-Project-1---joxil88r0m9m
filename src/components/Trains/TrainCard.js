@@ -67,7 +67,7 @@ export default function TrainCard({ details, trainId }) {
         };
 
         const requestBody = {
-          bookingType: "trains",
+          bookingType: "train",
           bookingDetails: {
             trainId: trainId,
           },

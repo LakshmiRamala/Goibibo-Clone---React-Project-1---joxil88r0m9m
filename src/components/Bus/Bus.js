@@ -2,7 +2,7 @@ import React, {  useState } from "react";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import { useNavigate } from "react-router-dom";
 import SwapVertIcon from '@mui/icons-material/SwapVert';
-export default function Bus() {
+export default function Bus(){
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
     const [day, setDay] = useState("");
@@ -15,12 +15,11 @@ export default function Bus() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         if ( day) {
             navigate(`/bus/${source}&${destination}`, { state: { source, destination, day } });
         }
         else{
-            alert("Please Provide all details");
+            alert("Please provide day!!!");
           }
     };
     return (

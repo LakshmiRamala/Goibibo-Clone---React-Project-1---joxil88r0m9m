@@ -18,8 +18,8 @@ import { Profile } from "./Profile";
                 <li><NavLink  className="navlink" to="/flights"><FlightOutlinedIcon color="primary" fontSize="large"/>Flights</NavLink></li>
                 <li><NavLink  className="navlink" to="/hotels"><HotelIcon color="primary" fontSize="large"/> Hotels</NavLink></li>
                 <li><NavLink  className="navlink" to="/trains"><TrainIcon color="primary" fontSize="large"/>Trains</NavLink></li>
-                <li><NavLink  className="navlink" to="/bus"><DirectionsBusIcon color="primary" fontSize="large"/>Bus</NavLink></li>    
-                 <li><NavLink id="mytrip" to="/mysupport/trips"><LuggageIcon fontSize="large"/><span>My Trips</span><br/> <span id="managebooking">Manage Booking</span></NavLink></li>
+                <li><NavLink  className="navlink" to="/bus"><DirectionsBusIcon color="primary" fontSize="large"/>Bus</NavLink></li> 
+                 <li><NavLink  id="mytrip" to="/mysupport/trips"><div role="presentation" className="sc-1f95z5i-9 sc-1f95z5i-10 jRCPfd jEkKCK"><span className="header-sprite lfOpAg mytrip-icon sc-1f95z5i-13"></span><span><div><p style={{color:"blue"}} className="kImAil sc-imWYAI">My Trips</p><p style={{color:"#333"}} className="sc-imWYAI xvumD">Manage Booking</p></div></span></div></NavLink></li>
                  {window.innerWidth>768 && <Profile/>}
             </ul>
         </nav>

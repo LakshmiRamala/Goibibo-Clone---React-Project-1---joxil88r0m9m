@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TrainPayment from "./TrainPayment.js";
 
 
 export default function CheckoutTrainPage() {
@@ -10,7 +11,8 @@ export default function CheckoutTrainPage() {
   const [phone, setPhone] = useState("");
 
  
-  const details =JSON.parse( sessionStorage.getItem("trainDeatils"));
+  const details =JSON.parse( sessionStorage.getItem("trainDetails"));
+  console.log(details);
   const [modalOpen, setModalOpen] = useState(false);
   
   const handlePayment = (e) => {
@@ -18,18 +20,17 @@ export default function CheckoutTrainPage() {
     if (firstname && lastname && country && email && phone) {
       setModalOpen(true);
     } else {
-     
       alert("Please provide all details");
     }
     
   };
-//   let totalPrice=1678+details.ticketPrice;
+  let totalPrice=1678+details.fare;
   
   return (
       <div className="checkout-container"> 
       <div className="flight-checkout-container">
     <section className="checkout-hotel-info checkout-Flight-Info" >
-      {/* <h2>TRAIN INFO</h2>
+      <h2>TRAIN INFO</h2>
       <div>
         <p>{details.airline}</p>
           <h4 style={{color:"red"}}>{details.flightID}</h4>
@@ -55,7 +56,7 @@ export default function CheckoutTrainPage() {
       <h1>FARE SUMMARY</h1>
       <span className="grand-total">
         <p>Base fare</p>
-        <h3>₹{details.ticketPrice}</h3>
+        <h3>₹{details.fare}</h3>
       </span>
       <span className="grand-total">
         <p>Taxes and Surcharges</p>
@@ -64,7 +65,7 @@ export default function CheckoutTrainPage() {
       <span style={{color:"#2176d1"}} className="grand-total">
         <h2>Grand Total</h2>
         <h3>₹{totalPrice}</h3>
-      </span> */}
+      </span>
 
     </section>
     </div>
@@ -99,8 +100,7 @@ export default function CheckoutTrainPage() {
     <input type="email" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}/>
     
     <p>Mobile Number</p>
-    <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={(e)=>setPhone(e.target.value)}/>
-    <small>Format: 123-456-7890</small>
+    <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{10}"  onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div className="payment-button">
     <button  type="submit" >Proceed To Payment Options</button>
@@ -109,7 +109,7 @@ export default function CheckoutTrainPage() {
     </form>
     </section>
     
-    {modalOpen && <FlightPayment details={details} total={totalPrice} 
+    {modalOpen && <TrainPayment details={details} total={totalPrice} 
     closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
 
     </div>

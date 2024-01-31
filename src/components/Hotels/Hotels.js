@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -12,7 +12,7 @@ export default function Hotels() {
     navigate(`/hotels/search/${location}`);
     }
     else{
-      alert("Please Provide all details");
+      alert("Please Provide location!!!");
     }
     }
 

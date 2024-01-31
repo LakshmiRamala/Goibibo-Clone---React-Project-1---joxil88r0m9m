@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
-import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+
 
 export default function Login() {
   const emailRef = useRef();
@@ -52,17 +51,9 @@ export default function Login() {
     loginUser(userDetails);
   };
 
-  // const onGoogleLoginSuccess = (response) => {
-  //   const decoded = jwtDecode(response.credential);
-  //   console.log(decoded);
-  // };
-
-  // const onGoogleLoginFailure = (error) => {
-  //  setMessage(error);
-  // };
 
   return (
-    // <GoogleOAuthProvider clientId="848852276859-6lh4ujdbqoveb68kdlrq2fs0bm5m49st.apps.googleusercontent.com">
+   
       <form className="form-container" onSubmit={handleFormSubmit}>
         <h1>Login</h1>
         <div className="inputFeild">
@@ -82,11 +73,8 @@ export default function Login() {
           <input type="submit" value="Login" />
           <h4 className="login-message">{message}</h4>
         </div>
-        {/* <GoogleLogin
-          onSuccess={onGoogleLoginSuccess}
-          onFailure={onGoogleLoginFailure}
-        /> */}
+       
       </form>
-    // </GoogleOAuthProvider>
+  
   );
 }

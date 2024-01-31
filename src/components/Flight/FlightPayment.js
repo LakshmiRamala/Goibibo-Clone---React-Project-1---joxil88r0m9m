@@ -33,6 +33,13 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
           }
         };
      const handlecreaditpayment=()=>{
+           const currentDate = new Date();
+    const expiration = new Date(exp);
+    
+    if (expiration < currentDate) {
+        alert("Please select a future expiration date.");
+        return;
+    }
           if(name && cardnum && cvv && exp){
                alert("Booking Success!!");
                if(window.innerWidth>768){
@@ -90,17 +97,21 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
              
             </div>)}
             {upipay && (
+               <form onSubmit={handleupipayment}>
                <div className="paymentsucesss">
-                    <span>
-               <label htmlFor="upiid">UPI Id:</label>
-               <input type="text" id="upiid" name="upiid" onChange={(e)=>setUpiid(e.target.value)}/>
-               </span>
-               <span>
-               <label htmlFor="upipin">UPI Pin: </label>
-               <input type="text" id="upipin" name="upipin" onChange={(e)=>setUpipin(e.target.value)}/>
-               </span>
-              <button type="submit" onClick={handleupipayment}>Submit</button>
+                   <span>
+                       <label htmlFor="upiid">UPI Id:</label>
+                       <input type="text" id="upiid" name="upiid" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" onChange={(e) => setUpiid(e.target.value)} required />
+                   </span>
+                   <span>
+                       <label htmlFor="upipin">UPI Pin: </label>
+                       <input type="tel" id="upipin" name="upipin" pattern="[0-9]{6}" onChange={(e) => setUpipin(e.target.value)} required />
+                       <small>Please enter exactly 6 digits</small>
+                   </span>
+                   <button type="submit">Submit</button>
                </div>
+           </form>
+           
             )}
             
             {!net && !upipay &&(<div className="payment-details" onClick={()=>setCredit(!creadit)}>
@@ -112,14 +123,15 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
              
             </div>)}
             {creadit && (
+               <form onSubmit={handlecreaditpayment}>
                <div className="paymentsucesss">
                     <span>
                <label htmlFor="cardNumber">Card Number:</label>
-               <input type="text" id="cardNumber" name="cardNumber" onChange={(e)=>setcardnum(e.target.value)}/>
+               <input type="text" id="cardNumber" name="cardNumber" pattern="[0-9]{13,16}" onChange={(e)=>setcardnum(e.target.value)}/>
                </span>
                <span>
                <label htmlFor="name">Name on Card: </label>
-               <input type="text" id="name" name="name" onChange={(e)=>setName(e.target.value)}/>
+               <input type="text" id="name" name="name" pattern="[A-Za-z ]{1,}" onChange={(e)=>setName(e.target.value)}/>
                </span>
                <span>
                <label htmlFor="expiration">Expiration: </label>
@@ -127,10 +139,11 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
                </span>
                <span>
                <label htmlFor="cvv">CVV: </label>
-               <input type="text" id="cvv" name="cvv" onChange={(e)=>setCvv(e.target.value)}/>
+               <input type="text" id="cvv" name="cvv"  pattern="[0-9]{3,4}" title="Enter a valid CVV (3 or 4 digits)" onChange={(e)=>setCvv(e.target.value)}/>
                </span>
-              <button type="submit" onClick={handlecreaditpayment}>Submit</button>
+              <button type="submit">Submit</button>
                </div>
+               </form>
             )}
             
           {!upipay && !creadit &&( <div className="payment-details" onClick={()=>setNet(!net)}>
@@ -142,6 +155,7 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
              
             </div>)}
             {net && (
+               <form onSubmit={handleNetPayment}>
                <div className="paymentsucesss">
                <span>
                <label htmlFor="bankname">Bank Name:</label>
@@ -149,18 +163,19 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
                </span>
                <span>
                <label htmlFor="account">Account Number: </label>
-               <input type="text" id="account" name="account" onChange={(e)=>setaccount(e.target.value)}/>
+               <input type="text" id="account" name="account" pattern="[0-9]{10}" onChange={(e)=>setaccount(e.target.value)}/>
                </span>
                <span>
                <label htmlFor="holdername">Account Holder Name: </label>
-               <input type="date" id="holdername" name="holdername" onChange={(e)=>setholdername(e.target.value)}/>
+               <input type="text" id="holdername" name="holdername" onChange={(e)=>setholdername(e.target.value)}/>
                </span>
                <span>
                <label htmlFor="ifsc">IFSC code: </label>
-               <input type="text" id="ifsc" name="ifsc" onChange={(e)=>setIfsc(e.target.value)}/>
+               <input type="text" id="ifsc" name="ifsc" pattern="[A-Za-z]{4}[0][A-Z0-9a-z]{6}"  onChange={(e)=>setIfsc(e.target.value)}/>
                </span>
-              <button type="submit" onClick={handleNetPayment}>Submit</button>
+              <button type="submit">Submit</button>
                </div>
+               </form>
             )}
            
             

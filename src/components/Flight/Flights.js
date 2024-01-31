@@ -18,11 +18,11 @@ export default function Flights() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (source && destination && day) {
+        if (day) {
             navigate(`/flights/${source}&${destination}`, { state: { source, destination, day } });
         }
         else{
-            alert("Please Provide all details");
+            alert("Please Provide day!!!");
           }
     };
     return (

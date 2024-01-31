@@ -67,23 +67,20 @@
   border: 1px solid gray;
   padding: 0.5em 0.7em;
   border-radius: 25em;
-  justify-content: space-between;
+  width: 78px;
+  justify-content: center;
   align-items: center;
   margin: 0px;
-
   &:hover {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     border: none;
   }
-
 }
 
 #mytrip {
-  margin-left: 24em;
   text-decoration: none;
-  padding-top: 2em;
   color: black;
 }
 
@@ -326,7 +323,28 @@ nav #managebooking {
 
   }
 }
+.xvumD {
+  line-height: normal;
+  font-size: 16px;
+  font-weight: 500;
+}
+.jEkKCK {
+  width: 148px;
+}
 
+.jRCPfd {
+  display: flex;
+  align-items: center;
+ cursor: pointer;
+  position: relative;
+  width: 200px;
+  margin-left: 160px;
+}
+.kImAil {
+  line-height: normal;
+  font-size: 14px;
+  font-weight: 600;
+}
 .filter {
   position: absolute;
   background-color: white;
@@ -339,6 +357,31 @@ nav #managebooking {
 
 .hotel-list-container {
   background-color: #ebeff0;
+}
+.header-sprite {
+  background: url(https://gos3.ibcdn.com/giHeaderSprite-1697090884.png) 0px 0px / 125px 200px no-repeat;
+  display: block;
+  flex-shrink: 0;
+}
+.header-sprite.mytrip-icon {
+  width: 22px;
+  height: 22px;
+  background-position: -43px -33px;
+}
+.lfOpAg {
+  margin-right: 10px;
+}
+.login-icon{
+  border-radius: 50%;
+  background-color:#fc6203;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  
 }
 
 
@@ -808,6 +851,19 @@ grid-template-columns: 1fr 1fr;
   justify-content: center;
   font-size: 2.5em;
   font-weight: 700;
+}
+.profile-box{
+  display: flex;
+  margin-top: 8px;
+  color: blue;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 4px;
+  border: 1px solid blue;
+  width: 200px;
+  height: 36px;
+  border-radius: 8px;
+
 }
 .personal-info{
   background-color: white;
@@ -1308,7 +1364,7 @@ border-radius: 25px;
     margin: 0.625em 0;
   }
   .main-user{
-    width: 94%;
+    width: 89%;
   }
 
   #mytrip{
