@@ -41,7 +41,7 @@ export const Profile = () => {
         {window.innerWidth > 768 && !isLoggedIn && (
           <div className="profile-box">
             <AccountCircleIcon color="primary" fontSize="large" />
-            <h1>LOGIN / SIGNUP</h1>
+            <h5>LOGIN / SIGNUP</h5>
           </div>
         )}
         {window.innerWidth > 768 && isLoggedIn && (
