@@ -390,7 +390,8 @@ nav #managebooking {
 .filtersbox {
   display: flex;
   flex-direction: column;
-  >form {
+}
+  .filtersbox form {
     display: flex;
     flex-direction: column;
     font-size:0.65em;
@@ -400,12 +401,12 @@ nav #managebooking {
     }
   }
 
-  >button {
+  .filtersbox  {
     cursor: pointer;
   }
 
 
-}
+
 
 
 .hoteltitle {
