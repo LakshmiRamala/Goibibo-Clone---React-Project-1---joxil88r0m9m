@@ -353,6 +353,8 @@ nav #managebooking {
   margin: 0.6em;
   font-size: 1.6em;
   padding: 1%;
+  display: flex;
+  flex-direction: column;
 }
 
 .hotel-list-container {
@@ -393,13 +395,9 @@ nav #managebooking {
     flex-direction: column;
     font-size:0.65em;
     padding:0.38em;
-
     >p {
       color: blue;
-
     }
-
-
   }
 
   >button {
