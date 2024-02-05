@@ -391,8 +391,8 @@ nav #managebooking {
   display: flex;
   flex-direction: column;
   >form {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     font-size:0.65em;
     padding:0.38em;
     >p {
