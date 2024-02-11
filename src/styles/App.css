@@ -45,12 +45,30 @@
   align-items: center;
   justify-content: space-around;
 }
+.newhotel{
+  background-color: #2176d1;
+  justify-content: center;
+  height:400px;
+  width: 60%;
+  color: white;
+  border-radius:0% 0% 1000px 120%;
+  box-shadow: #d7f7de;
+  text-align: center;
+  
+}
+.newheading{
+  color: white;
+ text-align: left;
+  padding:1%;
+  margin-left: 12%;
+
+}
 
 .navbar {
   display: flex;
   font-weight: 500;
   margin-top: 1.4em;
-  gap: 2rem;
+  gap: 2.5rem;
   background-color: white;
 
   >li {
@@ -59,24 +77,18 @@
 
 }
 
-
+.navlinkactive{
+  border-bottom: 5px solid #2176d1;
+}
 .navlink {
   display: flex;
   text-decoration: none;
   color: gray;
-  border: 1px solid gray;
-  padding: 0.5em 0.7em;
-  border-radius: 25em;
-  width: 78px;
   justify-content: center;
   align-items: center;
   margin: 0px;
-  &:hover {
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
-    border: none;
-  }
+  font-size: 20px;
+  gap: 4px;
 }
 
 #mytrip {
@@ -107,6 +119,43 @@ nav #managebooking {
   width: 100%;
   color: white;
   text-align: center;
+}
+#fligts{
+  border-radius: 0px 0px 43% 43%;
+  height: 40%;
+}
+.radio-button{
+  color: grey;
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.single-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.flighttype{
+  display: flex;
+  padding-top: 30px;
+  font-size: 14px;
+  color: #818684;
+  gap: 4px;
+
+  >div{
+    padding: 8px;
+    background-color: #f2f2f2;
+  }
+
+}
+.selected{
+color: #4e94fd;
+ background-color: #e8f1fc;
+ border-radius: 25px;
+ padding: 10px;
 }
 
 
@@ -151,13 +200,13 @@ nav #managebooking {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 6%;
+  margin: 4% 6%;
 
   >#searchflights {
     background-color: #fc6203;
-    width: 40%;
+    width: 20%;
     height: 20%;
-    padding: 2%;
+    padding:2%;
     color: white;
     border: none;
     text-transform: uppercase;
@@ -1322,6 +1371,7 @@ border-radius: 25px;
     height: 16em;
   }
  
+ 
   .home-container {
     display: flex;
     flex-direction: column;
@@ -1625,4 +1675,5 @@ border-radius: 25px;
     display: flex;
     flex-direction: column;
   }
+  
 }

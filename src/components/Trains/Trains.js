@@ -43,8 +43,8 @@ export default function Trains(){
                         <option value="Sun">Sunday</option>
                     </select>
                 </div>
-                <div className="searchflight trainbutton">
-                    <button type="submit" id="searchflights">Search Trains</button>
+                <div className="searchflight trainbutton" style={{margin:"6%"}}>
+                    <button type="submit" id="searchflights" style={{ width: window.innerWidth >= 768 ? "20%" : "60%" }}>Search Trains</button>
                 </div>
             </form>
             {window.innerWidth>768 &&  <div>
