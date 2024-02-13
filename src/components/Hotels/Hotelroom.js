@@ -39,11 +39,11 @@ export default function Hotelroom({ details, hotelId, hotelDetails }) {
         if (bookingId) {
           sessionStorage.setItem("bookingId", bookingId);
           sessionStorage.setItem("userId", JSON.stringify(res.data.bookingId.user));
-          navigate("/checkoutPage");
         }
       } catch (err) {
         console.error("Error:", err);
       }
+      navigate("/checkoutPage");
     } else {
       navigate("/login", { state: { prevPath: "/checkoutPage" } });
     }

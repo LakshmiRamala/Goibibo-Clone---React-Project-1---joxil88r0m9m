@@ -16,20 +16,20 @@ export default function FlightImage() {
                 <path d="M12.5163 29.884L8.76233 32.6051C7.13364 33.7373 6.53777 33.8565 4.90908 33.8565H1.83044L2.72424 33.0223L5.96177 29.884H12.5163Z" fill="#FF6400"></path>
                 <defs>
                     <linearGradient id="paint0_linear_1003_19162" x1="30.6305" y1="15.9607" x2="30.6305" y2="34.8297" gradientUnits="userSpaceOnUse">
-                        <stop offset="0.16" stop-color="white"></stop>
-                        <stop offset="0.39" stop-color="#EBEBEB"></stop>
-                        <stop offset="0.57" stop-color="#B5B5B5"></stop>
-                        <stop offset="0.74" stop-color="white"></stop>
-                        <stop offset="1" stop-color="#B3B3B3"></stop>
+                        <stop offset="0.16" stopColor="white"></stop>
+                        <stop offset="0.39" stopColor="#EBEBEB"></stop>
+                        <stop offset="0.57" stopColor="#B5B5B5"></stop>
+                        <stop offset="0.74" stopColor="white"></stop>
+                        <stop offset="1" stopColor="#B3B3B3"></stop>
                     </linearGradient>
                     <linearGradient id="paint1_linear_1003_19162" x1="4.9487" y1="39.8747" x2="71.9636" y2="18.5229" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="white"></stop>
+                        <stop stopColor="white"></stop>
                         <stop offset="1"></stop>
                     </linearGradient>
                     <linearGradient id="paint2_linear_1003_19162" x1="15.8929" y1="39.8149" x2="40.661" y2="39.8149" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#878787"></stop>
-                        <stop offset="0.04" stop-color="#B3B3B3"></stop>
-                        <stop offset="0.93" stop-color="white"></stop>
+                        <stop stopColor="#878787"></stop>
+                        <stop offset="0.04" stopColor="#B3B3B3"></stop>
+                        <stop offset="0.93" stopColor="white"></stop>
                     </linearGradient>
                 </defs>
             </svg>

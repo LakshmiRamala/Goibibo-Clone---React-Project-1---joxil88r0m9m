@@ -85,6 +85,7 @@ export default function BusBooking() {
       } catch (err) {
         console.error("Error:", err);
       }
+      navigate("/bus/checkoout");
     } else {
       navigate("/login", { state: { prevPath: "/bus/checkout" } });
     }

@@ -24,10 +24,24 @@ export default function Trains(){
         }
     };
     return (
-        <div className="flights">
+        <div className="flights" id={window.innerWidth>=768 && "trainnew"}>
             <h2 className="heading">Train Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
-                <div className="journeyinfo">
+              {window.innerWidth >= 768 && <section className="radio-button">
+                    <div className="single-button selected">
+                        <input type="radio" id="book" defaultChecked />
+                        <label htmlFor="book">Book Train tickets</label>
+                    </div>
+                    <div className="single-button" style={{ cursor: "not-allowed" }}>
+                        <input type="radio" id="pnr" checked={false} />
+                        <label htmlFor="pnr">Check PNR Status</label>
+                    </div>
+                    <div className="single-button" style={{ cursor: "not-allowed" }}>
+                        <input type="radio" id="live" checked={false} />
+                        <label htmlFor="live">Live Trains Status</label>
+                    </div>
+                </section>}
+                <div className="journeyinfo" style={{marginTop:window.innerWidth>=768 && "50px"}}>
                     <input type="text" id="from" placeholder="Enter Source.(secunderabad))" onChange={(e) => setSource(e.target.value)} value={source} />
                     {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
                     {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}

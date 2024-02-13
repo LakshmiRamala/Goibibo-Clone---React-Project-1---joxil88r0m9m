@@ -74,20 +74,23 @@ export default function TrainCard({ details, trainId }) {
         };
 
         const res = await axios.post(
+          
           "https://academics.newtonschool.co/api/v1/bookingportals/booking",
           { ...requestBody, appType: "bookingportals" },
           config
+         
         );
-
+       console.log(res);
         const bookingId = res.data.bookingId?._id;
         if (bookingId) {
           sessionStorage.setItem("bookingId", bookingId);
           sessionStorage.setItem("userId", JSON.stringify(res.data.bookingId.user));
-          navigate("/trains/checkout");
+          
         }
       } catch (err) {
         console.error("Error:", err);
       }
+      navigate("/trains/checkout");
     } else {
       navigate("/login", { state: { prevPath: "/trains/checkout" } });
     }

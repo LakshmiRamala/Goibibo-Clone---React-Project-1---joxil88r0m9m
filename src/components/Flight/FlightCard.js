@@ -45,6 +45,7 @@ export default function FlightCard({ details,flightId }) {
       } catch (err) {
         console.error("Error:", err);
       }
+      navigate("/flights/checkout")
     } else {
       navigate("/login", { state: { prevPath: "/flights/checkout" } });
     }

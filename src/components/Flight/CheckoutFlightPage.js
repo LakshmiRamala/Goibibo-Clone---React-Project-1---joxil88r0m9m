@@ -10,7 +10,7 @@ export default function CheckoutFlightPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
- 
+ const flightId=JSON.parse(sessionStorage.getItem("flightId"));
   const details =JSON.parse( sessionStorage.getItem("flightDeatils"));
   const [modalOpen, setModalOpen] = useState(false);
   
@@ -111,7 +111,7 @@ export default function CheckoutFlightPage() {
     </form>
     </section>
     
-    {modalOpen && <FlightPayment details={details} total={totalPrice} 
+    {modalOpen && <FlightPayment details={details} total={totalPrice}  flightId={flightId}
     closeModal={() => setModalOpen(false)} userDetails={{firstname,lastname,type,country,email,phone}}/>}
 
     </div>

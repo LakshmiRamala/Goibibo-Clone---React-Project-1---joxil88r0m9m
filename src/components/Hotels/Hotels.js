@@ -45,10 +45,10 @@ export default function Hotels() {
       window.innerWidth>=768&& (
         <div style={{display:"flex"}}>
          
-        <div className="newhotel" style={{display:"flex",paddingLeft:"70px"}}>
+        <div className="newhotel" style={{display:"flex",paddingLeft:"130px"}}>
           <section>
           <h2 className="newheading">Book Hotels & Homestays</h2>
-      <form className="details" onSubmit={handlesubmit} style={{width:"500px",height:"300px",}} >
+      <form className="details" onSubmit={handlesubmit} style={{width:"500px",height:"340px",}} >
         <section>
       <section className="radio-button">
                     <div className="single-button selected">
@@ -88,7 +88,7 @@ export default function Hotels() {
    <img src={hoteladd} alt="hoteladd" width="380px" height="240px" style={{marginTop:"80px",marginLeft:"100px"}}/>
         </div>
        
-        <img src={hoteladd2} alt="hoteladd" width="380px" height="240px" style={{marginTop:"80px",marginLeft:"100px"}}/>
+        <img src={hoteladd2} alt="hoteladd" width="380px" height="240px" style={{marginTop:"80px",marginLeft:"160px"}}/>
         </div>
       )
     }
