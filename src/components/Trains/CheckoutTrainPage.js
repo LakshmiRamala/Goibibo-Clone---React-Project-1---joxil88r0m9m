@@ -27,7 +27,7 @@ export default function CheckoutTrainPage() {
   let totalPrice=1678+details.fare;
   
   return (
-      <div className="checkout-container" style={{display:window.innerWidth<768 && "flex"}}> 
+      <div className="checkout-container" style={{display:window.innerWidth<768 && "flex",flexDirection:window.innerWidth<768 && "column"}}> 
       <div className="flight-checkout-container">
     <section className="checkout-hotel-info checkout-Flight-Info" >
       <h2>TRAIN INFO</h2>
