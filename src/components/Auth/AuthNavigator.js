@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "./AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 
 export  default function AuthNavigator({children})

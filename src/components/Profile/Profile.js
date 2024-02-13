@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "../Auth/AuthProvider";
 import { Menu, MenuItem } from "@mui/material";
 
 export const Profile = () => {

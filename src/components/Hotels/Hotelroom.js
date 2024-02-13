@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "../Auth/AuthProvider";
 
 export default function Hotelroom({ details, hotelId, hotelDetails }) {
   const { roomNumber, roomType, price, bedDetail } = details;

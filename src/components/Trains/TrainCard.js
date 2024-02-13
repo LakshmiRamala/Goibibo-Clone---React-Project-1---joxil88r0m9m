@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "../Auth/AuthProvider";
 import axios from "axios";
 
 export default function TrainCard({ details, trainId }) {

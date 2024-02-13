@@ -7,7 +7,7 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from "../Assets/flight.png";
 
-import { Profile } from "./Profile";
+import { Profile } from "../Profile/Profile";
 const HomeNav = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 

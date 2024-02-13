@@ -5,7 +5,7 @@ import FlightImage from "../Flight/FlightImage";
 import TrainImage from "../Trains/TrainImage";
 import BusImage from "../Bus/BusImage";
 import HotelImage from "../Hotels/HotelImage";
-import { Profile } from "./Profile";
+import { Profile } from "../Profile/Profile";
 
 export default function Navbar() {
     const currentURL = window.location.href;

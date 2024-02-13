@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "./AuthProvider";
 
 
 export default function Login() {
