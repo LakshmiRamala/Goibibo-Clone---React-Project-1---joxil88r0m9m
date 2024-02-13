@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "./AuthProvider";
 
 export default function SignUp() {
   const [message, setMessage] = useState("");
