@@ -34,6 +34,15 @@ export default function Tripsdata({ details }) {
           </>
         )
       }
+      {
+        details.booking_type==="bus" && (
+          <>
+          <p>{details.bus.name}</p>
+          <p>{details.bus.source}</p>
+          <p>{details.bus.destination}</p>
+          </>
+        )
+      }
       <p>{details.booking_type}</p>
       <p>{formattedDate} {formattedTime}</p>
     </div>

@@ -23,6 +23,7 @@ export default function BusBooking() {
           config
         );
         setBus(response.data.data);
+        sessionStorage.setItem("busDeatils", JSON.stringify(response.data.data));
       } catch (err) {
         console.log(err);
       } finally {
@@ -43,15 +44,12 @@ export default function BusBooking() {
     }
   };
 
-
-  
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
-    sessionStorage.setItem("busDeatils", JSON.stringify(bus));
 
-  const  handlebooking = async () => {
+  const handlebooking = async () => {
     const greySeatsCount = selectedSeats.filter((seat) => seat).length;
-    sessionStorage.setItem("selectedSeats",greySeatsCount);
+    sessionStorage.setItem("selectedSeats", greySeatsCount);
     if (isLoggedIn) {
       try {
         const token = sessionStorage.getItem("userToken");
@@ -59,15 +57,15 @@ export default function BusBooking() {
         const config = {
           headers: {
             projectId: "9sa80czkq1na",
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         };
 
         const requestBody = {
           bookingType: "bus",
           bookingDetails: {
             busId: _id,
-          }
+          },
         };
 
         const res = await axios.post(
@@ -85,7 +83,7 @@ export default function BusBooking() {
       } catch (err) {
         console.error("Error:", err);
       }
-      navigate("/bus/checkoout");
+      navigate("/bus/checkout");
     } else {
       navigate("/login", { state: { prevPath: "/bus/checkout" } });
     }
@@ -105,7 +103,7 @@ export default function BusBooking() {
                 <p>{bus.departureTime}</p>
                 <p>{bus.source}</p>
               </div>
-            <p>{"---->"}</p>
+              <p>{"---->"}</p>
               <div>
                 <h2 style={{ color: "#fc6203" }}>Dropping Point</h2>
                 <p>{bus.arrivalTime}</p>
@@ -160,13 +158,15 @@ export default function BusBooking() {
                     alt="grey box"
                   />
                 </div>
-               {bus.available && <button
-                  type="submit"
-                  className="busbooking-button"
-                  onClick={handlebooking}
-                >
-                  Book Now
-                </button>}
+                {bus.available && (
+                  <button
+                    type="submit"
+                    className="busbooking-button"
+                    onClick={handlebooking}
+                  >
+                    Book Now
+                  </button>
+                )}
               </div>
             </section>
           </main>
