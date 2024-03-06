@@ -3,14 +3,19 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import BusCard from "./BusCard";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import datanotfound from "../Assets/datanotfound.png";
 
 export default function BusSearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const state = location.state;
+  const [selectedDate, setSelectedDate] = useState(null);
   const [loading, setLoading] = useState(false);
   const [Buslist, setBusList] = useState([]);
   const [day, setDay] = useState(state.day);
+
   const [source, setSource] = useState(state.source);
   const [destination, setDestination] = useState(state.destination);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -79,6 +84,10 @@ export default function BusSearch() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (selectedDate) { 
+      const day = selectedDate.toLocaleDateString('en-US', { weekday: 'short' });
+     
+  }
     getBusData();
   };
 
@@ -89,7 +98,7 @@ export default function BusSearch() {
       ) : (
         <section>
           <div className="flight-search-container">
-            <form onSubmit={handleSubmit} className="flight-search-form">
+            <form onSubmit={handleSubmit} className="flight-search-form" style={{position:"relative"}}>
               <input
                 type="text"
                 id="from"
@@ -111,27 +120,20 @@ export default function BusSearch() {
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />
-              <select
-                name="day"
-                id="day"
-                onChange={(e) => setDay(e.target.value)}
-                value={day}
-              >
-                <option value="" disabled>
-                  Select day
-                </option>
-                <option value="Mon">Monday</option>
-                <option value="Tue">Tuesday</option>
-                <option value="Wed">Wednesday</option>
-                <option value="Thu">Thursday</option>
-                <option value="Fri">Friday</option>
-                <option value="Sat">Saturday</option>
-                <option value="Sun">Sunday</option>
-              </select>
-
-              <button type="submit" id="flight-update">
-                UPDATE SEARCH
-              </button>
+               <span style={{ position: "relative", display: "inline-block" }}>
+    <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: "-240px", width: "80%" }}>
+        UPDATE SEARCH
+    </button>
+    <DatePicker
+        selected={selectedDate}
+        onChange={date => setSelectedDate(date)}
+        minDate={new Date()} 
+        placeholderText="Select Date"
+        className="datepicker"
+        popperPlacement="bottom-start"
+        style={{height:"8px"}}
+    />
+</span>
               {window.innerWidth <= 768 && (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
                   Filter
@@ -423,6 +425,8 @@ export default function BusSearch() {
           </div>
           </>}
           <div className="hotel-list-container">
+          {Buslist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+
           {Buslist
         .filter((bus) => {
           const BusDeparture = convertTo24HourFormat(bus.departureTime);

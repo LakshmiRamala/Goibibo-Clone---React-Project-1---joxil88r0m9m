@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 export default function Trains(){
   const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
     const [day, setDay] = useState("");
+    const [selectedDate, setSelectedDate] = useState(null);
     const navigate = useNavigate();
 
     const handleToggle = () => {
@@ -16,8 +19,9 @@ export default function Trains(){
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if ( day) {
-            navigate(`/trains/${source}&${destination}`, { state: { source, destination, day } });
+        if (selectedDate) {
+          const day = selectedDate.toLocaleDateString('en-US', { weekday: 'short' });
+          navigate(`/trains/${source}&${destination}`, { state: { source, destination, day } });
         }
         else{
           alert("Please Provide day");
@@ -46,16 +50,13 @@ export default function Trains(){
                     {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
                     {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
                     <input type="text" id="to" placeholder="Enter Destination..(varanasi)" onChange={(e) => setDestination(e.target.value)} value={destination} />
-                    <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
-                        <option value="" disabled>Select day</option>
-                        <option value="Mon">Monday</option>
-                        <option value="Tue">Tuesday</option>
-                        <option value="Wed">Wednesday</option>
-                        <option value="Thu">Thursday</option>
-                        <option value="Fri">Friday</option>
-                        <option value="Sat">Saturday</option>
-                        <option value="Sun">Sunday</option>
-                    </select>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={date => setSelectedDate(date)}
+                        minDate={new Date()} 
+                        placeholderText="Select Date"
+                        className="datepicker"
+                    />
                 </div>
                 <div className="searchflight trainbutton" style={{margin:"6%"}}>
                     <button type="submit" id="searchflights" style={{ width: window.innerWidth >= 768 ? "20%" : "60%" }}>Search Trains</button>

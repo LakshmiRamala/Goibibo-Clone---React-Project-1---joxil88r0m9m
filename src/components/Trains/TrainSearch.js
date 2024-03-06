@@ -3,14 +3,19 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import TrainCard from "./TrainCard";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import datanotfound from "../Assets/datanotfound.png";
 
 export default function TrainSearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const [selectedDate, setSelectedDate] = useState(null);
   const state = location.state;
   const [loading, setLoading] = useState(false);
   const [Traintlist, setTrainList] = useState([]);
   const [day, setDay] = useState(state.day);
+  
   const [source, setSource] = useState(state.source);
   const [destination, setDestination] = useState(state.destination);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -91,6 +96,10 @@ export default function TrainSearch() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (selectedDate) { 
+      const day = selectedDate.toLocaleDateString('en-US', { weekday: 'short' });
+     
+  }
     getTrainsData();
   };
 
@@ -101,7 +110,7 @@ export default function TrainSearch() {
       ) : (
         <section>
           <div className="flight-search-container" style={{ backgroundColor: "#fc6203" }}>
-            <form onSubmit={handleSubmit} className="flight-search-form" >
+            <form onSubmit={handleSubmit} className="flight-search-form" style={{position:"relative"}}>
               <input
                 type="text"
                 id="from"
@@ -123,28 +132,20 @@ export default function TrainSearch() {
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />
-              <select
-                name="day"
-                id="day"
-                onChange={(e) => setDay(e.target.value)}
-                value={day}
-              >
-                <option value="" disabled>
-                  Select day
-                </option>
-                <option value="Mon">Monday</option>
-                <option value="Tue">Tuesday</option>
-                <option value="Wed">Wednesday</option>
-                <option value="Thu">Thursday</option>
-                <option value="Fri">Friday</option>
-                <option value="Sat">Saturday</option>
-                <option value="Sun">Sunday</option>
-              </select>
-
-              <button type="submit" id="flight-update" style={{ backgroundColor: "red" }}>
-                UPDATE SEARCH
-              </button>
-
+                   <span style={{ position: "relative", display: "inline-block" }}>
+    <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: "-240px", width: "80%",background:"red" }}>
+        UPDATE SEARCH
+    </button>
+    <DatePicker
+        selected={selectedDate}
+        onChange={date => setSelectedDate(date)}
+        minDate={new Date()} 
+        placeholderText="Select Date"
+        className="datepicker"
+        popperPlacement="bottom-start"
+        style={{height:"8px"}}
+    />
+</span>
               {window.innerWidth <= 768 && (<main className="resposive-filters">
                 <div className="menu-filter" style={{backgroundColor:"#2176d1"}}onClick={toggleMenu}>
                   Filter
@@ -424,6 +425,8 @@ export default function TrainSearch() {
             </div>
           </div></>)}
           <div className="hotel-list-container">
+          {Traintlist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+
             {Traintlist
               .filter((train) => {
                 const trainDeparture = convertTo24HourFormat(train.departureTime);

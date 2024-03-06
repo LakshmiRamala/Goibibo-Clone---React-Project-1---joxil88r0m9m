@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import { useNavigate } from "react-router-dom";
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import flightsimg from "../Assets/flightsadd.avif";
+
 export default function Flights() {
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
-
-    const [day, setDay] = useState("");
+    const [selectedDate, setSelectedDate] = useState(null); 
     const navigate = useNavigate();
 
     const handleToggle = () => {
@@ -18,13 +20,14 @@ export default function Flights() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (day) {
+        if (selectedDate) { 
+            const day = selectedDate.toLocaleDateString('en-US', { weekday: 'short' });
             navigate(`/flights/${source}&${destination}`, { state: { source, destination, day } });
-        }
-        else {
-            alert("Please Provide day!!!");
+        } else {
+            alert("Please select a date!!!");
         }
     };
+
     return (
         <div className="flights" id={window.innerWidth >= 768 && "fligts"}>
             {window.innerWidth >= 768 && <h2 className="heading">Book Domestic and International Flight Tickets</h2>}
@@ -50,48 +53,21 @@ export default function Flights() {
                     {window.innerWidth > 768 && <button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
                     {window.innerWidth <= 768 && <button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary" /></button>}
                     <input type="text" id="to" placeholder="Enter Destination...(BOM)" onChange={(e) => setDestination(e.target.value)} value={destination} />
-                    <select name="day" id="day" onChange={(e) => setDay(e.target.value)} value={day}>
-                        <option value="" disabled>Select day</option>
-                        <option value="Mon">Monday</option>
-                        <option value="Tue">Tuesday</option>
-                        <option value="Wed">Wednesday</option>
-                        <option value="Thu">Thursday</option>
-                        <option value="Fri">Friday</option>
-                        <option value="Sat">Saturday</option>
-                        <option value="Sun">Sunday</option>
-                    </select>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={date => setSelectedDate(date)}
+                        minDate={new Date()} 
+                        placeholderText="Select Date"
+                        className="datepicker"
+                    />
                 </div>
-                {window.innerWidth >= 768 && <section className="flighttype">
-                    <small>Select A<br />Fare Type:   </small>
-                    <div className="single-button selected">
-                        <input type="radio" id="regular" defaultChecked />
-                        <label htmlFor="regular">Regular</label>
-                    </div>
-                    <div className="single-button" style={{ cursor: "not-allowed" }}>
-                        <input type="radio" id="armedforces" checked={false} />
-                        <label htmlFor="armedforces">Armed Forces</label>
-                    </div>
-                    <div className="single-button" style={{ cursor: "not-allowed" }}>
-                        <input type="radio" id="senior" checked={false} />
-                        <label htmlFor="senior">Senior Citizen</label>
-                    </div>
-                    <div className="single-button" style={{ cursor: "not-allowed" }}>
-                        <input type="radio" id="student" checked={false} />
-                        <label htmlFor="student">Student</label>
-                    </div>
-                    <div className="single-button" style={{ cursor: "not-allowed" }}>
-                        <input type="radio" id="doctor" checked={false} />
-                        <label htmlFor="doctor">Doctors & Nurses</label>
-                    </div>
-                </section>}
 
-                <div className="searchflight" >
+                <div className="searchflight">
                     <button type="submit" id="searchflights" style={{ width: window.innerWidth >= 768 ? "20%" : "60%" }}>Search Flights</button>
                 </div>
-
             </form>
-            {window.innerWidth >= 768 && <img src={flightsimg} alt="flightadd" style={{ marginTop: "40px" }} width="60%" />}
 
+            {window.innerWidth >= 768 && <img src={flightsimg} alt="flightadd" style={{ marginTop: "40px" }} width="60%" />}
         </div>
     );
 }

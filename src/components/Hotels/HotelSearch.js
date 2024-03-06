@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import HotelCard from "./HotelCard";
+import datanotfound from "../Assets/datanotfound.png";
+
 
 export default function HotelSearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -288,6 +290,8 @@ export default function HotelSearch() {
           </>)}
 
           <div className="hotel-list-container">
+          {hotellist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+
             {hotellist
               .filter((hotel) => {
                 return (

@@ -52,8 +52,8 @@ export default function CheckoutTrainPage() {
       </div>
       <p>Baggage -7 Kgs (1 piece only) Cabin</p>
     </section>
-    </div>
-    <div>
+    
+    
     <section className="flight-price-details">
       <h1>FARE SUMMARY</h1>
       <span className="grand-total">
@@ -71,6 +71,7 @@ export default function CheckoutTrainPage() {
 
     </section>
     </div>
+   
     <section className="checkout-hotel-info"> 
     <h2>GUEST DETAILS</h2>
     <form onSubmit={handlePayment}>
