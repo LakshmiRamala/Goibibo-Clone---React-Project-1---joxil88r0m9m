@@ -15,7 +15,7 @@ export default function TrainSearch() {
   const [loading, setLoading] = useState(false);
   const [Traintlist, setTrainList] = useState([]);
   const [day, setDay] = useState(state.day);
-  
+
   const [source, setSource] = useState(state.source);
   const [destination, setDestination] = useState(state.destination);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -89,17 +89,17 @@ export default function TrainSearch() {
     else {
       newhour = hour.charAt(0) + hour.charAt(1);
     }
- 
+
 
     return newhour;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (selectedDate) { 
+    if (selectedDate) {
       const day = selectedDate.toLocaleDateString('en-US', { weekday: 'short' });
-     
-  }
+
+    }
     getTrainsData();
   };
 
@@ -110,7 +110,7 @@ export default function TrainSearch() {
       ) : (
         <section>
           <div className="flight-search-container" style={{ backgroundColor: "#fc6203" }}>
-            <form onSubmit={handleSubmit} className="flight-search-form" style={{position:"relative"}}>
+            <form onSubmit={handleSubmit} className="flight-search-form" style={{ position: "relative" }}>
               <input
                 type="text"
                 id="from"
@@ -132,22 +132,22 @@ export default function TrainSearch() {
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />
-                   <span style={{ position: "relative", display: "inline-block" }}>
-    <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: "-240px", width: "80%",background:"red" }}>
-        UPDATE SEARCH
-    </button>
-    <DatePicker
-        selected={selectedDate}
-        onChange={date => setSelectedDate(date)}
-        minDate={new Date()} 
-        placeholderText="Select Date"
-        className="datepicker"
-        popperPlacement="bottom-start"
-        style={{height:"8px"}}
-    />
-</span>
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: window.innerWidth > 768 ? "-240px" : "-99px", width: window.innerWidth > 786 ? "80%" : "52%" ,backgroundColor:"red"}}>
+                  UPDATE SEARCH
+                </button>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={date => setSelectedDate(date)}
+                  minDate={new Date()}
+                  placeholderText="Select Date"
+                  className="datepicker"
+                  popperPlacement="bottom-start"
+                  style={{ height: "8px" }}
+                />
+              </span>
               {window.innerWidth <= 768 && (<main className="resposive-filters">
-                <div className="menu-filter" style={{backgroundColor:"#2176d1"}}onClick={toggleMenu}>
+                <div className="menu-filter" style={{ backgroundColor: "#2176d1" }} onClick={toggleMenu}>
                   Filter
                 </div>
                 {isMenuOpen && (<div className="filter">
@@ -425,7 +425,7 @@ export default function TrainSearch() {
             </div>
           </div></>)}
           <div className="hotel-list-container">
-          {Traintlist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+            {Traintlist.length === 0 && <img src={datanotfound} alt="data not found" style={{ marginLeft: "40%", marginTop: "2%" }} height="500px" />}
 
             {Traintlist
               .filter((train) => {

@@ -29,7 +29,7 @@ export default function CheckoutTrainPage() {
   return (
       <div className="checkout-container" style={{display:window.innerWidth<768 && "flex",flexDirection:window.innerWidth<768 && "column"}}> 
       <div className="flight-checkout-container">
-    <section className="checkout-hotel-info checkout-Flight-Info" >
+    <section className="checkout-hotel-info checkout-Flight-Info" style={{width:window.innerWidth<=768 &&"74%"}}>
       <h2>TRAIN INFO</h2>
       <div>
         <p>{details.airline}</p>
@@ -72,7 +72,7 @@ export default function CheckoutTrainPage() {
     </section>
     </div>
    
-    <section className="checkout-hotel-info"> 
+    <section className="checkout-hotel-info" style={{width:window.innerWidth<=768 &&"74%",marginLeft:window.innerWidth<=768 && "5%"}}> 
     <h2>GUEST DETAILS</h2>
     <form onSubmit={handlePayment}>
     <main className="checkout-guest">
