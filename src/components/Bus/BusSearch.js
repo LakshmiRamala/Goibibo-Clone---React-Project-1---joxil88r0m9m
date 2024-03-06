@@ -120,20 +120,20 @@ export default function BusSearch() {
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />
-               <span style={{ position: "relative", display: "inline-block" }}>
-    <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: "-240px", width: "80%" }}>
-        UPDATE SEARCH
-    </button>
-    <DatePicker
-        selected={selectedDate}
-        onChange={date => setSelectedDate(date)}
-        minDate={new Date()} 
-        placeholderText="Select Date"
-        className="datepicker"
-        popperPlacement="bottom-start"
-        style={{height:"8px"}}
-    />
-</span>
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:window.innerWidth>768 ? "-240px":"-99px", width: window.innerWidth>786 ?"80%":"52%" }}>
+                  UPDATE SEARCH
+                </button>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={date => setSelectedDate(date)}
+                  minDate={new Date()}
+                  placeholderText="Select Date"
+                  className="datepicker"
+                  popperPlacement="bottom-start"
+                  style={{ height: "8px" }}
+                />
+              </span>
               {window.innerWidth <= 768 && (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
                   Filter

@@ -45,7 +45,7 @@ export default function Bus(){
                     />
                 </div>
                 <div className="searchflight">
-                    <button type="submit" id="searchflights" style={{backgroundColor:"#2176d1"}}>Search Bus</button>
+                    <button type="submit" id="searchflights" style={{backgroundColor:"#2176d1",width: window.innerWidth >= 768 ? "20%" : "60%" }}>Search Bus</button>
                 </div>
             </form>
     </div>
