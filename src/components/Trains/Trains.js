@@ -58,8 +58,8 @@ export default function Trains(){
                         className="datepicker"
                     />
                 </div>
-                <div className="searchflight trainbutton" style={{margin:"6%"}}>
-                    <button type="submit" id="searchflights" style={{ width: window.innerWidth >= 768 ? "20%" : "60%" }}>Search Trains</button>
+                <div className="searchflight trainbutton" style={{margin:window.innerWidth>768 ?"6%":"0%"}}>
+                    <button type="submit" id="searchflights" style={{ width: window.innerWidth >= 768 ? "20%" : "50%" }}>Search Trains</button>
                 </div>
             </form>
             {window.innerWidth>768 &&  <div>

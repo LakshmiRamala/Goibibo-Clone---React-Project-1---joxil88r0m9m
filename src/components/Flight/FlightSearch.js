@@ -82,10 +82,10 @@ export default function Flighysearch() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (selectedDate) { 
+    if (selectedDate) {
       const day = selectedDate.toLocaleDateString('en-US', { weekday: 'short' });
-     
-  }
+
+    }
     getFlightsData();
   };
 
@@ -96,13 +96,14 @@ export default function Flighysearch() {
       ) : (
         <section>
           <div className="flight-search-container">
-            <form onSubmit={handleSubmit} className="flight-search-form" style={{position:"relative"}}>
+            <form onSubmit={handleSubmit} className="flight-search-form" style={{ position: "relative" }}>
               <input
                 type="text"
                 id="from"
                 placeholder="Enter Source...(HYD)"
                 onChange={(e) => setSource(e.target.value)}
                 value={source}
+                
               />
               <button
                 id="toggle"
@@ -118,20 +119,20 @@ export default function Flighysearch() {
                 onChange={(e) => setDestination(e.target.value)}
                 value={destination}
               />
-     <span style={{ position: "relative", display: "inline-block" }}>
-    <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: "-240px", width: "80%" }}>
-        UPDATE SEARCH
-    </button>
-    <DatePicker
-        selected={selectedDate}
-        onChange={date => setSelectedDate(date)}
-        minDate={new Date()} 
-        placeholderText="Select Date"
-        className="datepicker"
-        popperPlacement="bottom-start"
-        style={{height:"8px"}}
-    />
-</span>
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:window.innerWidth>768 ? "-240px":"-99px", width: window.innerWidth>786 ?"80%":"52%" }}>
+                  UPDATE SEARCH
+                </button>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={date => setSelectedDate(date)}
+                  minDate={new Date()}
+                  placeholderText="Select Date"
+                  className="datepicker"
+                  popperPlacement="bottom-start"
+                  style={{ height: "8px" }}
+                />
+              </span>
 
               {window.innerWidth <= 768 && (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
@@ -392,7 +393,7 @@ export default function Flighysearch() {
           </div>
           </>}
           <div className="hotel-list-container">
-          {flightlist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+            {flightlist.length === 0 && <img src={datanotfound} alt="data not found" style={{ marginLeft: "40%", marginTop: "2%" }} height="500px" />}
 
             {flightlist
               .filter((flight) => {
@@ -420,7 +421,7 @@ export default function Flighysearch() {
               .map((flight) => (
                 <FlightCard details={flight} key={flight._id} flightId={flight._id} />
               ))}
-             
+
 
           </div>
         </section>

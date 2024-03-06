@@ -24,7 +24,7 @@ const HomeNav = () => {
      {window.innerWidth <= 768 && (<> <div  id="goibibolog">
 
       <NavLink to="/">
-        <img src={logo} id="logo" />
+        <img src={logo} id="logo" alt="logo" width="170%" height="100%"/>
         </NavLink>
        
           <div style={{ padding: "0px 20px" }}>
