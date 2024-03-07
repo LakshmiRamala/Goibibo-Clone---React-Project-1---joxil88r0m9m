@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SwapVertIcon from '@mui/icons-material/SwapVert';
+import { useMediaQuery } from 'react-responsive';
 export default function Bus(){
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
+    const isMobile = useMediaQuery({ maxWidth: 768 });
     const [day, setDay] = useState("");
     const [selectedDate, setSelectedDate] = useState(null); 
     const navigate = useNavigate();
@@ -28,13 +30,13 @@ export default function Bus(){
     };
     return (
         <>
-         <div className="flights" style={{backgroundColor:"#2176d1",height:window.innerWidth>=768 && "180px"}} >
+         <div className="flights" style={{backgroundColor:"#2176d1",height:isMobile && "180px"}} >
             <h2 className="heading">Bus Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
                 <div className="journeyinfo">
                     <input type="text" id="from" placeholder="Enter Source....(Hyderabad)" onChange={(e) => setSource(e.target.value)} value={source} />
-                    {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
-                    {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
+                    {!isMobile &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
+                    {isMobile &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
                     <input type="text" id="to" placeholder="Enter Destination....(Gujarat)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <DatePicker
                         selected={selectedDate}
@@ -45,11 +47,11 @@ export default function Bus(){
                     />
                 </div>
                 <div className="searchflight">
-                    <button type="submit" id="searchflights" style={{backgroundColor:"#2176d1",width: window.innerWidth >= 768 ? "20%" : "60%" }}>Search Bus</button>
+                    <button type="submit" id="searchflights" style={{backgroundColor:"#2176d1",width: !isMobile ? "20%" : "60%" }}>Search Bus</button>
                 </div>
             </form>
     </div>
-       {window.innerWidth>768 && (
+       {!isMobile && (
         <div style={{marginTop:"8%"}}>
     <h1 style={{marginLeft:"5%"}}>Government Buses</h1>
     <div className="statebus-details">

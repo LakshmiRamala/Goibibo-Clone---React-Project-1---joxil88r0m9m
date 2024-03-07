@@ -6,6 +6,7 @@ import BusCard from "./BusCard";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import datanotfound from "../Assets/datanotfound.png";
+import { useMediaQuery } from 'react-responsive';
 
 export default function BusSearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function BusSearch() {
   const [loading, setLoading] = useState(false);
   const [Buslist, setBusList] = useState([]);
   const [day, setDay] = useState(state.day);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const [source, setSource] = useState(state.source);
   const [destination, setDestination] = useState(state.destination);
@@ -121,7 +123,7 @@ export default function BusSearch() {
                 value={destination}
               />
               <span style={{ position: "relative", display: "inline-block" }}>
-                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:window.innerWidth>768 ? "-240px":"-99px", width: window.innerWidth>786 ?"80%":"52%" }}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:!isMobile ? "-240px":"-99px", width: !isMobile>786 ?"80%":"52%" }}>
                   UPDATE SEARCH
                 </button>
                 <DatePicker
@@ -134,7 +136,7 @@ export default function BusSearch() {
                   style={{ height: "8px" }}
                 />
               </span>
-              {window.innerWidth <= 768 && (<main className="resposive-filters">
+              {isMobile <= 768 && (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
                   Filter
                 </div>
@@ -283,7 +285,7 @@ export default function BusSearch() {
           </main>)}
             </form>
           </div>
-          {window.innerWidth > 768 && <> <div className="filter">
+          {!isMobile && <> <div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>

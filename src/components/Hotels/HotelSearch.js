@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import HotelCard from "./HotelCard";
 import datanotfound from "../Assets/datanotfound.png";
-
+import { useMediaQuery } from 'react-responsive';
 
 export default function HotelSearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const { location } = useParams();
   const [hotellist, setHotelList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -66,7 +67,7 @@ export default function HotelSearch() {
       ) : (
         <section>
           <div className="hotelinfo">
-          {window.innerWidth <= 768 && (<main className="resposive-filters">
+          {isMobile && (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
                   Filter
                 </div>
@@ -185,7 +186,7 @@ export default function HotelSearch() {
               }}
             />
           </div>
-          {window.innerWidth > 768 && (<><div className="filter">
+          {!isMobile && (<><div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>

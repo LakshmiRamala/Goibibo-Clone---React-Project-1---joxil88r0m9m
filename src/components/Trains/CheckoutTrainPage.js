@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import TrainPayment from "./TrainPayment.js";
+import { useMediaQuery } from 'react-responsive';
 
 
 export default function CheckoutTrainPage() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [type, setType] = useState("");
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -27,9 +29,9 @@ export default function CheckoutTrainPage() {
   let totalPrice=1678+details.fare;
   
   return (
-      <div className="checkout-container" style={{display:window.innerWidth<768 && "flex",flexDirection:window.innerWidth<768 && "column"}}> 
+      <div className="checkout-container" style={{display:isMobile && "flex",flexDirection:isMobile&& "column"}}> 
       <div className="flight-checkout-container">
-    <section className="checkout-hotel-info checkout-Flight-Info" style={{width:window.innerWidth<=768 &&"74%"}}>
+    <section className="checkout-hotel-info checkout-Flight-Info" style={{width:isMobile&&"74%"}}>
       <h2>TRAIN INFO</h2>
       <div>
         <p>{details.airline}</p>
@@ -72,7 +74,7 @@ export default function CheckoutTrainPage() {
     </section>
     </div>
    
-    <section className="checkout-hotel-info" style={{width:window.innerWidth<=768 &&"74%",marginLeft:window.innerWidth<=768 && "5%"}}> 
+    <section className="checkout-hotel-info" style={{width:isMobile &&"74%",marginLeft:isMobile && "5%"}}> 
     <h2>GUEST DETAILS</h2>
     <form onSubmit={handlePayment}>
     <main className="checkout-guest">

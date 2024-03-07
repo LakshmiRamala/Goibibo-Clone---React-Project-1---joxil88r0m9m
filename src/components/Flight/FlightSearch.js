@@ -6,8 +6,10 @@ import FlightCard from "./FlightCard";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import datanotfound from "../Assets/datanotfound.png";
+import { useMediaQuery } from 'react-responsive';
 export default function Flighysearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const location = useLocation();
   const [selectedDate, setSelectedDate] = useState(null);
   const state = location.state;
@@ -120,7 +122,7 @@ export default function Flighysearch() {
                 value={destination}
               />
               <span style={{ position: "relative", display: "inline-block" }}>
-                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:window.innerWidth>768 ? "-240px":"-99px", width: window.innerWidth>786 ?"80%":"52%" }}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:!isMobile ? "-240px":"-99px", width: !isMobile ?"80%":"52%" }}>
                   UPDATE SEARCH
                 </button>
                 <DatePicker
@@ -134,7 +136,7 @@ export default function Flighysearch() {
                 />
               </span>
 
-              {window.innerWidth <= 768 && (<main className="resposive-filters">
+              {isMobile&& (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
                   Filter
                 </div>
@@ -267,7 +269,7 @@ export default function Flighysearch() {
               </main>)}
             </form>
           </div>
-          {window.innerWidth > 768 && <><div className="filter">
+          {!isMobile && <><div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>

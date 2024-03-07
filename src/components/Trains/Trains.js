@@ -4,8 +4,10 @@ import SyncAltTwoToneIcon from '@mui/icons-material/SyncAltTwoTone';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useMediaQuery } from 'react-responsive';
 export default function Trains(){
   const [source, setSource] = useState("");
+  const isMobile = useMediaQuery({ maxWidth: 768 });
     const [destination, setDestination] = useState("");
     const [day, setDay] = useState("");
     const [selectedDate, setSelectedDate] = useState(null);
@@ -28,10 +30,10 @@ export default function Trains(){
         }
     };
     return (
-        <div className="flights" id={window.innerWidth>=768 && "trainnew"}>
+        <div className="flights" id={!isMobile && "trainnew"}>
             <h2 className="heading">Train Ticket Booking</h2>
             <form className="details" onSubmit={handleSubmit}>
-              {window.innerWidth >= 768 && <section className="radio-button">
+              {!isMobile && <section className="radio-button">
                     <div className="single-button selected">
                         <input type="radio" id="book" defaultChecked />
                         <label htmlFor="book">Book Train tickets</label>
@@ -45,10 +47,10 @@ export default function Trains(){
                         <label htmlFor="live">Live Trains Status</label>
                     </div>
                 </section>}
-                <div className="journeyinfo" style={{marginTop:window.innerWidth>=768 && "50px"}}>
+                <div className="journeyinfo" style={{marginTop:!isMobile && "50px"}}>
                     <input type="text" id="from" placeholder="Enter Source.(secunderabad))" onChange={(e) => setSource(e.target.value)} value={source} />
-                    {window.innerWidth>768 &&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
-                    {window.innerWidth<=768 &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
+                    {!isMobile&&<button id="toggle" onClick={handleToggle}><SyncAltTwoToneIcon color="primary" /></button>}
+                    {isMobile &&<button id="toggle" onClick={handleToggle}><SwapVertIcon color="primary"/></button>}
                     <input type="text" id="to" placeholder="Enter Destination..(varanasi)" onChange={(e) => setDestination(e.target.value)} value={destination} />
                     <DatePicker
                         selected={selectedDate}
@@ -58,11 +60,11 @@ export default function Trains(){
                         className="datepicker"
                     />
                 </div>
-                <div className="searchflight trainbutton" style={{margin:window.innerWidth>768 ?"6%":"0%"}}>
-                    <button type="submit" id="searchflights" style={{ width: window.innerWidth >= 768 ? "20%" : "50%" }}>Search Trains</button>
+                <div className="searchflight trainbutton" style={{margin:!isMobile ?"6%":"0%"}}>
+                    <button type="submit" id="searchflights" style={{ width:!isMobile ? "20%" : "50%" }}>Search Trains</button>
                 </div>
             </form>
-            {window.innerWidth>768 &&  <div>
+            {!isMobile &&  <div>
            <main className="train-container">
               <h1>1 million+ customers</h1>
               <p>book train tickets with us because</p>

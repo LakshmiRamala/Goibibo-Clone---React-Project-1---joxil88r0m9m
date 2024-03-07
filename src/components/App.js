@@ -23,10 +23,11 @@ import CheckoutTrainPage from './Trains/CheckoutTrainPage';
 import BusCheckout from './Bus/BusCheckout';
 import HomePage from './Navbar/HomePage';
 import HomeNav from './Navbar/HomeNav';
+import { useMediaQuery } from 'react-responsive';
 
 
 function App() {
-  const isHomePage = window.innerWidth <= 768;
+  const isHomePage =  useMediaQuery({ maxWidth: 768 });
 
   return (
     <div className="App">

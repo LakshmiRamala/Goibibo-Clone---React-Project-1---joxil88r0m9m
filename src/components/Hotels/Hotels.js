@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import hoteladd from "../Assets/hoteladd.avif";
 import hoteladd2 from "../Assets/hoteladd2.avif";
 import hoteladd1 from "../Assets/hoteladd1.jpg";
+import { useMediaQuery } from 'react-responsive';
 
 export default function Hotels() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const [location, setLocation] = useState("");
 
   const handlesubmit = (e) => {
@@ -20,7 +22,7 @@ export default function Hotels() {
 
   return (
     <>
-   {window.innerWidth<768 &&  <div className="hotel">
+   {isMobile&&  <div className="hotel">
       <h2 className="heading">Book Hotels & Homestays</h2>
       <form className="details" onSubmit={handlesubmit}>
         <div className="location">
@@ -42,7 +44,7 @@ export default function Hotels() {
       </form>
     </div>}
     {
-      window.innerWidth>=768&& (
+     !isMobile&& (
         <div style={{display:"flex"}}>
          
         <div className="newhotel" style={{display:"flex",paddingLeft:"130px"}}>

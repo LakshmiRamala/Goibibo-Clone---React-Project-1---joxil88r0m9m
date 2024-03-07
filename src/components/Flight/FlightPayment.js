@@ -3,6 +3,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 
 export default function FlightPayment({ details,total, closeModal,userDetails }) {
      const [upipay,setUpipay]=useState(false);
@@ -16,13 +17,14 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
      const [holdername,setholdername]=useState("");
      const [ifsc,setIfsc]=useState("");
      const [net,setNet]=useState(false);
+     const isMobile = useMediaQuery({ maxWidth: 768 });
      const [upiid,setUpiid]=useState("");
      const [upipin,setUpipin]=useState("");
      const navigate=useNavigate();
      const handleNetPayment = () => {
           if (bankname && account && holdername && ifsc) {
             alert("Booking Success!!");
-            if(window.innerWidth>768){
+            if(!isMobile){
                navigate("/flights");
                }
                else{
@@ -42,7 +44,7 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
     }
           if(name && cardnum && cvv && exp){
                alert("Booking Success!!");
-               if(window.innerWidth>768){
+               if(!isMobile){
                     navigate("/flights");
                     }
                     else{
@@ -56,7 +58,7 @@ export default function FlightPayment({ details,total, closeModal,userDetails })
      const handleupipayment=()=>{
           if(upiid && upipin){
                alert("Booking Success!!");
-               if(window.innerWidth>768){
+               if(!isMobile){
                     navigate("/flights");
                     }
                     else{

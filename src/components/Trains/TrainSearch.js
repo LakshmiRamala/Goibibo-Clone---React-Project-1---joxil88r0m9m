@@ -6,10 +6,12 @@ import TrainCard from "./TrainCard";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import datanotfound from "../Assets/datanotfound.png";
+import { useMediaQuery } from 'react-responsive';
 
 export default function TrainSearch() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const [selectedDate, setSelectedDate] = useState(null);
   const state = location.state;
   const [loading, setLoading] = useState(false);
@@ -133,7 +135,7 @@ export default function TrainSearch() {
                 value={destination}
               />
               <span style={{ position: "relative", display: "inline-block" }}>
-                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: window.innerWidth > 768 ? "-240px" : "-99px", width: window.innerWidth > 786 ? "80%" : "52%" ,backgroundColor:"red"}}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right: !isMobile ? "-240px" : "-99px", width: !isMobile? "80%" : "52%" ,backgroundColor:"red"}}>
                   UPDATE SEARCH
                 </button>
                 <DatePicker
@@ -146,7 +148,7 @@ export default function TrainSearch() {
                   style={{ height: "8px" }}
                 />
               </span>
-              {window.innerWidth <= 768 && (<main className="resposive-filters">
+              {isMobile && (<main className="resposive-filters">
                 <div className="menu-filter" style={{ backgroundColor: "#2176d1" }} onClick={toggleMenu}>
                   Filter
                 </div>
@@ -288,7 +290,7 @@ export default function TrainSearch() {
               </main>)}
             </form>
           </div>
-          {window.innerWidth > 768 && (<> <div className="filter">
+          {!isMobile && (<> <div className="filter">
             <div className="filtersbox">
               <h4>Filters</h4>
               <form>

@@ -6,10 +6,12 @@ import TrainIcon from '@mui/icons-material/Train';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from "../Assets/flight.png";
+import { useMediaQuery } from 'react-responsive';
 
 import { Profile } from "../Profile/Profile";
 const HomeNav = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -21,7 +23,7 @@ const HomeNav = () => {
 
   return (
     <nav className="home-nav"> 
-     {window.innerWidth <= 768 && (<> <div  id="goibibolog">
+     {isMobile && (<> <div  id="goibibolog">
 
       <NavLink to="/">
         <img src={logo} id="logo" alt="logo" width="170%" height="100%"/>

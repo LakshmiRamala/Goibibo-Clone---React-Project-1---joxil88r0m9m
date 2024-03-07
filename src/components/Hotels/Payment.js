@@ -3,10 +3,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 
 export default function Payment({ details,hotelDetails,total, closeModal,userDetails }) {
 const [upipay,setUpipay]=useState(false);
 const [creadit,setCredit]=useState(false);
+const isMobile = useMediaQuery({ maxWidth: 768 });
 const [cardnum,setcardnum]=useState("");
 const [name,setName]=useState("");
 const [cvv,setCvv]=useState("");
@@ -22,7 +24,7 @@ const navigate=useNavigate();
 const handleNetPayment = () => {
      if (bankname && account && holdername && ifsc) {
        alert("Booking Success!!");
-       if(window.innerWidth>768){
+       if(!isMobile){
           navigate("/flights");
           }
           else{
@@ -42,7 +44,7 @@ const handlecreaditpayment=()=>{
     }
      if(name && cardnum && cvv && exp){
           alert("Booking Success!!");
-          if(window.innerWidth>768){
+          if(!isMobile){
                navigate("/flights");
                }
                else{
@@ -56,7 +58,7 @@ const handlecreaditpayment=()=>{
 const handleupipayment=()=>{
      if(upiid && upipin){
           alert("Booking Success!!");
-          if(window.innerWidth>768){
+          if(!isMobile){
                navigate("/flights");
                }
                else{

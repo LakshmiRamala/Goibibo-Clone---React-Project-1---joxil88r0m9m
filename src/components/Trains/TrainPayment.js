@@ -3,8 +3,10 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 
 export default function TrainPayment({ details,total, closeModal,userDetails }) {
+     const isMobile = useMediaQuery({ maxWidth: 768 });
      const [upipay,setUpipay]=useState(false);
      const [creadit,setCredit]=useState(false);
      const [cardnum,setcardnum]=useState("");
@@ -22,7 +24,7 @@ export default function TrainPayment({ details,total, closeModal,userDetails }) 
      const handleNetPayment = () => {
           if (bankname && account && holdername && ifsc) {
             alert("Booking Success!!");
-            if(window.innerWidth>768){
+            if(!isMobile){
                navigate("/flights");
                }
                else{
@@ -42,7 +44,7 @@ export default function TrainPayment({ details,total, closeModal,userDetails }) 
     }
           if(name && cardnum && cvv && exp){
                alert("Booking Success!!");
-               if(window.innerWidth>768){
+               if(!isMobile){
                     navigate("/flights");
                     }
                     else{
@@ -57,7 +59,7 @@ export default function TrainPayment({ details,total, closeModal,userDetails }) 
           
           if(upiid && upipin){
                alert("Booking Success!!");
-               if(window.innerWidth>768){
+               if(!isMobile){
                     navigate("/flights");
                     }
                     else{

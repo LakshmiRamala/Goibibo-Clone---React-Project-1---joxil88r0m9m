@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Payment from "./Payment";
+import { useMediaQuery } from 'react-responsive';
 
 
 export default function CheckoutPage() {
@@ -9,6 +10,7 @@ export default function CheckoutPage() {
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
  
   const details =JSON.parse( sessionStorage.getItem("details"));
@@ -47,10 +49,10 @@ export default function CheckoutPage() {
         <h2 style={{color:"#2176d1"}}>Room Deatils</h2>
         <div className="chechout-room">
         <main className="checkout-room-details">
-        <p>{window.innerWidth>768 && "RoomNumber : "}{window.innerWidth<=768 && "RoomNo:"}{details.roomNumber}</p>
-        <p>{window.innerWidth>768 && "Room Type: "}{details.roomType}</p>
-        <p>{window.innerWidth>768 && "Room Size: "}{details.roomSize}</p>
-        <p>{window.innerWidth>768 && "Price: "}{window.innerWidth<=768 && "₹"}{details.price}</p>
+        <p>{!isMobile && "RoomNumber : "}{isMobile && "RoomNo:"}{details.roomNumber}</p>
+        <p>{!isMobile && "Room Type: "}{details.roomType}</p>
+        <p>{!isMobile && "Room Size: "}{details.roomSize}</p>
+        <p>{!isMobile && "Price: "}{isMobile && "₹"}{details.price}</p>
         </main>
         <main style={{color:"green"}}>
           <p>{details.bedDetail}</p>
