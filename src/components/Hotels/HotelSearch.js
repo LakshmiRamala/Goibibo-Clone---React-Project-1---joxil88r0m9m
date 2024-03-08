@@ -291,7 +291,7 @@ export default function HotelSearch() {
           </>)}
 
           <div className="hotel-list-container">
-          {hotellist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+          {hotellist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:!isMobile?"40%":"10px",marginTop:!isMobile?"2%":"10%"}} height={!isMobile ?"500px":"400px"}  />}
 
             {hotellist
               .filter((hotel) => {

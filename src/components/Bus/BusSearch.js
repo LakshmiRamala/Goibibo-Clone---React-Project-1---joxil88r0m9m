@@ -427,7 +427,7 @@ export default function BusSearch() {
           </div>
           </>}
           <div className="hotel-list-container">
-          {Buslist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:"40%",marginTop:"2%"}} height="500px"/>}
+          {Buslist.length === 0 && <img src={datanotfound} alt="data not found" style={{marginLeft:!isMobile?"40%":"10px",marginTop:!isMobile?"2%":"10%"}} height={!isMobile ?"500px":"400px"}  />}
 
           {Buslist
         .filter((bus) => {
