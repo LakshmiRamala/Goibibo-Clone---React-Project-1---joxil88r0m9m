@@ -123,7 +123,7 @@ export default function BusSearch() {
                 value={destination}
               />
               <span style={{ position: "relative", display: "inline-block" }}>
-                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:!isMobile ? "-240px":"-99px", width: !isMobile>786 ?"80%":"52%" }}>
+                <button type="submit" id="flight-update" style={{ position: "absolute", top: "10px", right:!isMobile ? "-240px":"-99px", width: !isMobile ?"80%":"52%" }}>
                   UPDATE SEARCH
                 </button>
                 <DatePicker
