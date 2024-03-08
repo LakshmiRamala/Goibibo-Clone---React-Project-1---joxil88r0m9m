@@ -136,7 +136,7 @@ export default function BusSearch() {
                   style={{ height: "8px" }}
                 />
               </span>
-              {isMobile <= 768 && (<main className="resposive-filters">
+              {isMobile  && (<main className="resposive-filters">
                 <div className="menu-filter" onClick={toggleMenu}>
                   Filter
                 </div>
